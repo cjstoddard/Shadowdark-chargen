@@ -36,64 +36,61 @@ Main:
 
   GoSub ShowStat
 
-Print "Choose your Class:"
-Print " 1 Fighter"
-Print " 2 Priest"
-Print " 3 Rogue
-Print " 4 Wizrd"
-Input CHOICEC
-If CHOICEC = 1 Then Gosub fighter
-If CHOICEC = 2 Then Gosub priest
-If CHOICEC = 3 Then Gosub rogue
-If CHOICEC = 4 Then GoSub wizard
+Ancestry:
+  Print "Choose your ancestry:"
+  Print " 1 Dwarf"
+  Print " 2 Elf"
+  Print " 3 Goblin"
+  Print " 4 Half-Orc"
+  Print " 5 Halfling"
+  Print " 6 Human"
+  Input CHOICER
+    If CHOICER < 1 Then Goto Ancestry
+    If CHOICER = 1 Then Gosub Dwarf
+    If CHOICER = 2 Then Gosub Elf
+    If CHOICER = 3 Then Gosub Goblin
+    If CHOICER = 4 Then GoSub Half-Orc
+    If CHOICER = 5 Then Gosub Halfling
+    If CHOICER = 6 Then GoSub Human
+    If CHOICER > 6 Then Goto Ancestry
+
+Classy:
+  Print "Choose your Class:"
+  Print " 1 Fighter"
+  Print " 2 Priest"
+  Print " 3 Thief"
+  Print " 4 Wizard"
+  Input CHOICEC
+    If CHOICEC < 1 Then Goto Classy
+    If CHOICEC = 1 Then Gosub Fighter
+    If CHOICEC = 2 Then Gosub Priest
+    If CHOICEC = 3 Then Gosub Thief
+    If CHOICEC = 4 Then GoSub Wizard
+    If CHOICEC > 4 Then Goto Classy
 
 ' Randomly assigns the characters background
 Background:
   DICE(1) = Int(Rnd * 20) + 1 
-    If DICE(1) = 1 Then Back$ = "Bounty Hunter"
-    If DICE(1) = 2 Then Back$ = "Courtesan"
-    If DICE(1) = 3 Then Back$ = "Duelist"
-    If DICE(1) = 4 Then Back$ = "Executioner"
-    If DICE(1) = 5 Then Back$ = "Farmer"
-    If DICE(1) = 6 Then Back$ = "Grave Robber"
-    If DICE(1) = 7 Then Back$ = "Leech Collector"
-    If DICE(1) = 8 Then Back$ = "Mercenary"
-    If DICE(1) = 9 Then Back$ = "Minor Noble"
-    If DICE(1) = 10 Then Back$ = "Outlaw"
-    If DICE(1) = 11 Then Back$ = "Performer"
-    If DICE(1) = 12 Then Back$ = "Pit Fighter"
-    If DICE(1) = 13 Then Back$ = "Pirate/Sailor"
-    If DICE(1) = 14 Then Back$ = "Priest/nun/monk"
-    If DICE(1) = 15 Then Back$ = "Rat Catcher"
-    If DICE(1) = 16 Then Back$ = "Servant"
-    If DICE(1) = 17 Then Back$ = "Student/Scholar"
-    If DICE(1) = 18 Then Back$ = "Swineherd"
-    If DICE(1) = 19 Then Back$ = "Soldier"
-    If DICE(1) = 20 Then Back$ = "Urchin"
-
-' Assigns a random misery to the character
-RandomMisery:
-  DICE(1) = Int(Rnd * 20) + 1 
-    If DICE(1) = 1 Then Misery$ = "Abandoned at birth"
-    If DICE(1) = 2  Then Misery$ = "Banished from home"
-    If DICE(1) = 3  Then Misery$ = "Betrayed by a loved one"
-    If DICE(1) = 4  Then Misery$ = "Cursed by vengeful witch"
-    If DICE(1) = 5  Then Misery$ = "Disinherited or disowned"
-    If DICE(1) = 6  Then Misery$ = "Escaped bondage or prison"
-    If DICE(1) = 7  Then Misery$ = "Fled a scandal"
-    If DICE(1) = 8  Then Misery$ = "Framed for a crime"
-    If DICE(1) = 9  Then Misery$ = "Killed someone important"
-    If DICE(1) = 10  Then Misery$ = "Left for dead"
-    If DICE(1) = 11  Then Misery$ = "Locusts ate your crops"
-    If DICE(1) = 12  Then Misery$ = "Owe someone money"
-    If DICE(1) = 13  Then Misery$ = "Pursued by the law"
-    If DICE(1) = 14  Then Misery$ = "Raised in the streets"
-    If DICE(1) = 15  Then Misery$ = "Reduced to poverty"
-    If DICE(1) = 16  Then Misery$ = "Rejected by society"
-    If DICE(1) = 17  Then Misery$ = "Ruined by vice"
-    If DICE(1) = 18  Then Misery$ = "Suffering from amnesia"
-    If DICE(1) = 19  Then Misery$ = "Survived a massacre"
-    If DICE(1) = 20  Then Misery$ = "Town ravaged by plague"
+    If DICE(1) = 1 Then Back$ = "Urchin"
+    If DICE(1) = 2 Then Back$ = "Wanted"
+    If DICE(1) = 3 Then Back$ = "Cult Initiate"
+    If DICE(1) = 4 Then Back$ = "Thieves' Guild"
+    If DICE(1) = 5 Then Back$ = "Banished"
+    If DICE(1) = 6 Then Back$ = "Orphaned"
+    If DICE(1) = 7 Then Back$ = "Wizard's Apprentice"
+    If DICE(1) = 8 Then Back$ = "Jeweler"
+    If DICE(1) = 9 Then Back$ = "Herbalist"
+    If DICE(1) = 10 Then Back$ = "Barbarian"
+    If DICE(1) = 11 Then Back$ = "Mercenary"
+    If DICE(1) = 12 Then Back$ = "Sailor"
+    If DICE(1) = 13 Then Back$ = "Acolyte"
+    If DICE(1) = 14 Then Back$ = "Soldier"
+    If DICE(1) = 15 Then Back$ = "Ranger"
+    If DICE(1) = 16 Then Back$ = "Scout"
+    If DICE(1) = 17 Then Back$ = "Minstrel"
+    If DICE(1) = 18 Then Back$ = "Scholar"
+    If DICE(1) = 19 Then Back$ = "Noble"
+    If DICE(1) = 20 Then Back$ = "Chirurgeon"
 
 ' Randomly rolls gold and rations
 StartGear:
@@ -105,12 +102,11 @@ StartGear:
 Print: Print "What is your Name"
   Input NAME$
   Print
-  Print "Deathbringer Character Sheet 1.0"
+  Print "Shadowdark Character Sheet 1.0"
   Print "------------------------------"
   Print "Character Name: "; NAME$
   Print "Character Class: "; CLASS$
   Print "Background: "; Back$
-  Print "Random Misery: "; Misery$
   Print "------------------------------"
   Print
   Print "STR: "; STRENGTH$
@@ -140,12 +136,11 @@ Print: Print "What is your Name"
  ' Outputs the finished character to a text file
   Open NAME$ + ".txt" For OUTPUT As #1
   Print #1,
-  Print #1, "Deathbringer Character Sheet 1.0"
+  Print #1, "Shadowdark Character Sheet 1.0"
   Print #1, "------------------------------"
   Print #1, "Character Name: "; NAME$
   Print #1, "Character Class: "; CLASS$
   Print #1, "Background: "; Back$
-  Print #1, "Random Misery: "; Misery$
   Print #1, "------------------------------"
   Print #1,
   Print #1, "STR: "; STRENGTH$
@@ -215,60 +210,75 @@ YesNo:
   Input YN
   Return
 
+' Assigns Ancestry features
+
+Dwarf:
+
+Return
+
+Elf:
+
+Return
+
+Goblin:
+
+Return
+
+Half-Orc:
+
+Return
+
+Halfling:
+
+Return
+
+Human:
+
+Return
+
 ' Assigns class features
-DEATHBRINGER:
-  CLASS$ = "Deathbringer"
-  HITPOINTS = 10
-  Feature1$ = "Hit Dice: d10. Use any armor or weapons."
-  Feature2$ = "Spend a Deathbringer Die to make one extra attack."
-  Feature3$ = "Second attack at 5th level."
-  Feature4$ = ""
-  Feature5$ = ""
-  Starting$ = " doublet, shield, 2 weapons"
+Fighter:
+  CLASS$ = "Fighter"
+  HITPOINTS = Int(Rnd * 8) + 1
+  Feature1$ = "Weapons: All weapons"
+  Feature2$ = "Armor: All armor and shields"
+  Feature3$ = "Hauler. Add your Constitution modifier, if positive, to your gear slots."
+  Feature4$ = "Weapon Mastery. Choose one type of weapon, such as longswords. You gain +1 to attack and damage with that weapon type. In addition, add half your level to these rolls (round down)."
+  Feature5$ = "Grit. Choose Strength or Dexterity. You have advantage on checks of that type to overcome an opposing force,such as kicking open a stuck door (Strength) or slipping free of rusty chains (Dexterity)."
+  Starting$ = ""
 Return
 
-GRIMSCRIBE:
-  CLASS$ = "Grimscribe"
-  HITPOINTS = 6
-  Feature1$ = "Hit Dice: d6. Cannot wear armor, simple weapons."
-  Feature2$ = "No spell slots. Roll to cast, DC 10."
-  Feature3$ = "On a roll of Natural 1 gain 1 Corruption and roll on the Miscast Table."
-  Feature4$ = "Gains spells by finding scrolls, spell books, or by having a friendly higher-level magic user teach them to you."
-  Feature5$ = "You are a living grimoire, must tattoo all spells on your skin."
-  Starting$ = " four cantrips, two first-level spells, dagger"
-Return
-
-SCOUNDREL:
-  CLASS$ = "Scoundrel"
-  HITPOINTS = 8
-  Feature1$ = "Hit Dice: d8. Light armor only, simple weapons."
-  Feature2$ = "Advantage when attempting stealth, climbing, listening, lockpicking, searching, etc."
-  Feature3$ = "+4 to hit and double damage from behind."
+Priest:
+  CLASS$ = "Priest"
+  HITPOINTS = Int(Rnd * 6) + 1
+  Feature1$ = ""
+  Feature2$ = ""
+  Feature3$ = ""
   Feature4$ = ""
   Feature5$ = ""
-  Starting$ = " leather jacket, club or dagger, thieves' tools, rope, grappling hook, lucky charm."
+  Starting$ = ""
 Return
 
-WITCH_HUNTER:
-  CLASS$ = "Witch Hunter"
-  HITPOINTS = 8
-  Feature1$ = "Hit Dice: d8. Light armor, martial and simple weapons."
-  Feature2$ = "Cast Detect Evil and Protection from Evil 1x per day"
-  Feature3$ = "Turn Undead at will."
+Thief:
+  CLASS$ = "Thief"
+  HITPOINTS = Int(Rnd * 6) + 1
+  Feature1$ = ""
+  Feature2$ = ""
+  Feature3$ = ""
   Feature4$ = ""
   Feature5$ = ""
-  Starting$ = " leather coat, club, crossbow, holy symbol, 6 torches."
+  Starting$ = ""
 Return
 
-PLAGUE_DOCTOR:
-  CLASS$ = "Plague Doctor"
-  HITPOINTS = 6
-  Feature1$ = "Hit Dice: d6. Leather armor only, simple weapons."
-  Feature2$ = "Cure Wounds once per patient per day, Cure Disease & Cure Poison 1x per day."
-  Feature3$ = "Create 1d4 potions a day (1) acid splash (2) sleep (3) poison spray (4) bomb [d10] (5) healing [d6] (6) hallucinations"
+Wizard:
+  CLASS$ = "Wizard"
+  HITPOINTS = Int(Rnd * 4) + 1
+  Feature1$ = ""
+  Feature2$ = ""
+  Feature3$ = ""
   Feature4$ = ""
   Feature5$ = ""
-  Starting$ = "Leather beak mask and coat, meat cleaver, medical kit, very suspicious diploma"
+  Starting$ = ""
 Return
 
 ' Ends the program
