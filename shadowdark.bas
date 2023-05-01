@@ -261,6 +261,7 @@ Return
 Fighter:
   CLASS$ = "Fighter"
   HITPOINTS = Int(Rnd * 8) + 1
+  GoSub FixHP
   Weapon$ = "Weapons: All weapons"
   Armor$ = "Armor: All armor and shields"
   ClassFeature1$ = "Hauler. Add your Constitution modifier, if positive, to your gear slots."
@@ -271,6 +272,7 @@ Return
 Priest:
   CLASS$ = "Priest"
   HITPOINTS = Int(Rnd * 6) + 1
+  GoSub FixHP
   Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword, staff, warhammer"
   Armor$ = "Armor: All armor and shields"
   ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
@@ -281,6 +283,7 @@ Return
 Thief:
   CLASS$ = "Thief"
   HITPOINTS = Int(Rnd * 4) + 1
+  GoSub FixHP
   Weapon$ = "Weapons: Club, crossbow, dagger, shortbow, shortsword"
   Armor$ = "Armor: Leather armor, mithral chainmail"
   ClassFeature1$ = "Backstab. If you hit a creature who is unaware of your attack, you deal an extra weapon die of damage. Add additional weapon dice of damage equal to half your level (round down)."
@@ -291,6 +294,7 @@ Return
 Wizard:
   CLASS$ = "Wizard"
   HITPOINTS = Int(Rnd * 4) + 1
+  GoSub FixHP
   Weapon$ = "Weapons: Dagger, staff"
   Armor$ = "Armor: None"
   ClassFeature1$ = "You know two additional common languages and two rare languages"
@@ -301,11 +305,24 @@ Return
 Zero-Level:
   CLASS$ = "Zero Level"
   HITPOINTS = 1
+  GoSub FixHP
   Weapon$ = "Weapons: All weapons until 1st level"
   Armor$ = "Armor: All armor and shields until 1st level"
   ClassFeature1$ = "Beginner's luck, you can wield all gear until 1st level."
   ClassFeature2$ = " "
   ClassFeature3$ = " "
+Return
+
+FixHP:
+  If CONSTITUTION$ = "-1" Then HITPOINTS = HITPOINTS - 1
+  If CONSTITUTION$ = "-2" Then HITPOINTS = HITPOINTS - 2
+  If CONSTITUTION$ = "-3" Then HITPOINTS = HITPOINTS - 3
+  If CONSTITUTION$ = "-4" Then HITPOINTS = HITPOINTS - 4
+  If CONSTITUTION$ = "+1" Then HITPOINTS = HITPOINTS + 1
+  If CONSTITUTION$ = "+2" Then HITPOINTS = HITPOINTS + 2
+  If CONSTITUTION$ = "+3" Then HITPOINTS = HITPOINTS + 3
+  If CONSTITUTION$ = "+4" Then HITPOINTS = HITPOINTS + 4
+  If HITPOINTS < 1 Then HITPOINTS = 1
 Return
 
 ' Ends the program
