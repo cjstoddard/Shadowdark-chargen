@@ -9,7 +9,7 @@ This program was writen for Qbasic and can be compiled with QB64 or FreeBasic;
 
 FreeBasic is available at https://www.freebasic.net/. To compile under FreeBasic, use the folowing;
 
-fbc -lang qb shadowdark.bas -x bin/shadowdark 
+fbc -lang qb shadowdark.bas -x binaries/shadowdark 
 
 QB64 is availble from https://qb64.com/. If you are using QB64 or have downloaded Qbasic from the internet, the first line of the program must be changed from Randomize (Timer, 3) to Randomize Timer. To compile under QB64, use the folowing;
 
