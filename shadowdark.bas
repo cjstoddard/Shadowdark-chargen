@@ -2,7 +2,8 @@
 ' ** Shadowsdark.bas 1.0            **
 ' ** By Chris Stoddard, May 2023    **
 ' ** Based on the Shadowdark RPG    **
-' ** by Kelsey Dionne               **
+' ** by Kelsey Dionne and           **
+' ** Arcane Library                 **
 ' ************************************
 
 ' Use this if compiling with FreeBasic
