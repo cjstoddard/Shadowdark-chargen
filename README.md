@@ -2,7 +2,7 @@
 
 This program randomly generates a character for the Shadowdark RPG, Quickstart rules are availble at;
 
-https://
+https://www.drivethrurpg.com/product/413713/Shadowdark-RPG-Quickstart-Set
 
 Compiling:
 This program was writen for Qbasic and can be compiled with QB64 or FreeBasic;
@@ -22,3 +22,5 @@ I am aware this is really bad code. I originally wrote this program back in the 
 At some point I will add pre compiled Windows and Linux binaries for those who do not want to go to the trouble of downloading and installing QB64 or FreeBasic. Sorry OS X users, I do not own a Mac, you are on your own.
 
 Thank you to Kelsey Dionne for creating the Shadowdark RPG, your hard work and creativity is appreciated.
+
+https://www.thearcanelibrary.com/
