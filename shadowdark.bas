@@ -52,7 +52,7 @@ Ancestry:
     If CHOICER = 1 Then Gosub Dwarf
     If CHOICER = 2 Then Gosub Elf
     If CHOICER = 3 Then Gosub Goblin
-    If CHOICER = 4 Then GoSub Half-Orc
+    If CHOICER = 4 Then GoSub HalfOrc
     If CHOICER = 5 Then Gosub Halfling
     If CHOICER = 6 Then GoSub Human
     If CHOICER > 6 Then Goto Ancestry
@@ -70,7 +70,7 @@ ClassChoice:
     If CHOICEC = 2 Then Gosub Priest
     If CHOICEC = 3 Then Gosub Thief
     If CHOICEC = 4 Then GoSub Wizard
-    If CHOICEC = 5 Then GoSub Zero-Level
+    If CHOICEC = 5 Then GoSub ZeroLevel
     If CHOICEC > 5 Then Goto ClassChoice
 
 ' Randomly assigns the characters background
@@ -110,7 +110,7 @@ Print: Print "What is your Name"
   Print "Shadowdark Character Sheet 1.0"
   Print "------------------------------"
   Print "Character Name: "; NAME$
-  Print "Ancestry" ; Ancestry$
+  Print "Ancestry " ; Ancestry$
   Print "Background: "; Back$
   Print "Character Class: "; CLASS$
   Print "------------------------------"
@@ -125,8 +125,8 @@ Print: Print "What is your Name"
   Print "Hit Points: "; HITPOINTS
   Print
   Print "------------------------------"
-  Print "Ancestry Feature:" ; AncestryFeature$
-  Print "Languages:" ; Language$
+  Print "Ancestry Feature: " ; AncestryFeature$
+  Print "Languages: " ; Lanuage$
   Print "Class Features:"
   Print Weapon$
   print Armor$
@@ -146,7 +146,7 @@ Print: Print "What is your Name"
   Print #1, "Shadowdark Character Sheet 1.0"
   Print #1, "------------------------------"
   Print #1, "Character Name: "; NAME$
-  Print #1, "Ancestry" ; Ancestry$
+  Print #1, "Ancestry " ; Ancestry$
   Print #1, "Background: "; Back$
   Print #1, "Character Class: "; CLASS$
   Print #1, "------------------------------"
@@ -162,7 +162,7 @@ Print: Print "What is your Name"
   Print #1, 
   Print #1, "------------------------------"
   Print #1, "Ancestry Feature:" ; AncestryFeature$
-  Print #1, "Languages:" ; Language$
+  Print #1, "Languages:" ; Lanuage$
   Print #1, "Class Features:"
   Print #1, Weapon$
   Print #1, Armor$
@@ -239,7 +239,7 @@ Goblin:
   AncestryFeature$ = "Keen Senses. You can't be surprised."
 Return
 
-Half-Orc:
+HalfOrc:
   Ancestry$ = "Half-Orc"
   Lanuage$ = "Common and Orcish"
   AncestryFeature$ = "Mighty. You have a +1 bonus to attack and damage rolls with melee weapons."
@@ -302,7 +302,7 @@ Wizard:
   ClassFeature3$ = "Spellcasting. You can cast wizard spells you know."
 Return
 
-Zero-Level:
+ZeroLevel:
   CLASS$ = "Zero Level"
   HITPOINTS = 1
   GoSub FixHP
