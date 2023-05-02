@@ -40,6 +40,7 @@ Main:
   GoSub YesNo
   If YN = 2 Then GoTo FinishUp
 
+' Choose the ancestry of the character
 Ancestry:
   Print "Choose your Ancestry:"
   Print " 1 Dwarf"
@@ -58,6 +59,7 @@ Ancestry:
     If CHOICER = 6 Then GoSub Human
     If CHOICER > 6 Then Goto Ancestry
 
+'Choose the class of the character
 ClassChoice:
   Print "Choose your Class:"
   Print " 1 Fighter"
@@ -97,12 +99,6 @@ Background:
     If DICE(1) = 18 Then Back$ = "Scholar"
     If DICE(1) = 19 Then Back$ = "Noble"
     If DICE(1) = 20 Then Back$ = "Chirurgeon"
-
-' Randomly rolls gold and rations
-StartGear:
-  GOLD$ = Str$ (Int(Rnd * 6) + 1)
-  RATION$ = Str$ (Int(Rnd * 4) + 1)
-  Gear$ = GOLD$ + " GP, " + RATION$ + " days of Rations, 1 Waterskin."
 
 ' Prints out the finished character to the screen
 Print: Print "What is your Name"
@@ -206,7 +202,6 @@ Roll3d6:
   If TOTAL = 16 Then TOTAL$ = "+3"
   If TOTAL = 17 Then TOTAL$ = "+3"
   If TOTAL = 18 Then TOTAL$ = "+4"
-
 Return
 
 ' Displays rolled attributes and die modifiers
@@ -220,6 +215,7 @@ ShowStat:
   Print
   Return
 
+'Asks a yes or no question
 YesNo:
   Print "1 Yes"
   Print "2 No"
@@ -227,7 +223,6 @@ YesNo:
   Return
 
 ' Assigns Ancestry features
-
 Dwarf:
   Ancestry$ = "Dwarf"
   Lanuage$ = "Common and Dwarvish"
@@ -345,6 +340,7 @@ ZeroLevel:
   ClassTalent$ = " "
 Return
 
+'Adds Con bonus to Hit Points
 FixHP:
   If CONSTITUTION$ = "-1" Then HITPOINTS = HITPOINTS - 1
   If CONSTITUTION$ = "-2" Then HITPOINTS = HITPOINTS - 2
@@ -357,6 +353,7 @@ FixHP:
   If HITPOINTS < 1 Then HITPOINTS = 1
 Return
 
+'Rolls a random number to get the class talent
 GetTalent:
   Dice(1)  = Int(Rnd * 6) + 1
   Dice(2)  = Int(Rnd * 6) + 1
