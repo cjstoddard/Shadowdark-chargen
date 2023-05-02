@@ -114,6 +114,8 @@ Print: Print "What is your Name"
   Print "Ancestry " ; Ancestry$
   Print "Background: "; Back$
   Print "Character Class: "; CLASS$
+  Print "XP:    _____"
+  Print "Level: _____"
   Print "------------------------------"
   Print
   Print "STR: "; STRENGTH ; "/" ; STRENGTH$
@@ -129,11 +131,12 @@ Print: Print "What is your Name"
   Print "Ancestry Feature: " ; AncestryFeature$
   Print "Languages: " ; Lanuage$
   Print "Class Features:"
-  Print Weapon$
-  print Armor$
-  Print ClassFeature1$
-  Print ClassFeature2$
-  Print ClassFeature3$
+  Print Tab(5) ; Weapon$
+  print Tab(5) ; Armor$
+  Print Tab(5) ; ClassFeature1$
+  Print Tab(5) ; ClassFeature2$
+  Print Tab(5) ; ClassFeature3$
+  Print "Class Talent: " ; ClassTalent$
   Print "------------------------------"
   Print "EQUIPMENT:"
 
@@ -150,6 +153,8 @@ Print: Print "What is your Name"
   Print #1, "Ancestry " ; Ancestry$
   Print #1, "Background: "; Back$
   Print #1, "Character Class: "; CLASS$
+  Print #1, "XP: ________"
+  Print #1, "Level: _____"
   Print #1, "------------------------------"
   Print #1,
   Print #1, "STR: "; STRENGTH ; "/" ; STRENGTH$
@@ -165,11 +170,12 @@ Print: Print "What is your Name"
   Print #1, "Ancestry Feature:" ; AncestryFeature$
   Print #1, "Languages:" ; Lanuage$
   Print #1, "Class Features:"
-  Print #1, Weapon$
-  Print #1, Armor$
-  Print #1, ClassFeature1$
-  Print #1, ClassFeature2$
-  Print #1, ClassFeature3$
+  Print #1, Tab(5) ; Weapon$
+  Print #1, Tab(5) ; Armor$
+  Print #1, Tab(5) ; ClassFeature1$
+  Print #1, Tab(5) ; ClassFeature2$
+  Print #1, Tab(5) ; ClassFeature3$
+  Print #1, "Class Talent: " ; ClassTalent$
   Print #1, "------------------------------"
   Print #1, "EQUIPMENT:"
 
@@ -268,6 +274,12 @@ Fighter:
   ClassFeature1$ = "Hauler. Add your Constitution modifier, if positive, to your gear slots."
   ClassFeature2$ = "Weapon Mastery. Choose one type of weapon, such as longswords. You gain +1 to attack and damage with that weapon type. In addition, add half your level to these rolls (round down)."
   ClassFeature3$ = "Grit. Choose Strength or Dexterity. You have advantage on checks of that type to overcome an opposing force,such as kicking open a stuck door (Strength) or slipping free of rusty chains (Dexterity)."
+  Gosub GetTalent
+  If Talent$ = "2" Then ClassTalent$ = "Gain Weapon Mastery with one additional weapon"
+  If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee and ranged attacks"
+  If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Constitution stat"
+  If Talent$ = "10-11" Then ClassTalent$ = "Choose one kind of armor. You get +1 AC from that armor"
+  If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 Priest:
@@ -279,6 +291,12 @@ Priest:
   ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
   ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
   ClassFeature3$ = "Deity. Choose a god to serve who matches your alignment. You have a holy symbol for your god (it takes up no gear slots)."
+  Gosub GetTalent
+  If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
+  If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
+  If Talent$ = "7-9" Then ClassTalent$ = "+1 to priest spellcasting checks"
+  If Talent$ = "10-11" Then ClassTalent$ = "+2 to Strength or Wisdom stat"
+  If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 Thief:
@@ -290,6 +308,12 @@ Thief:
   ClassFeature1$ = "Backstab. If you hit a creature who is unaware of your attack, you deal an extra weapon die of damage. Add additional weapon dice of damage equal to half your level (round down)."
   ClassFeature2$ = "Thievery. You are adept at thieving skills and have the necessary tools of the trade secreted on your person (they take up no gear slots)."
   ClassFeature3$ = "You are trained in the thievery tasks and have advantage on any associated checks"
+  Gosub GetTalent
+  If Talent$ = "2" Then ClassTalent$ = "Gain advantage on initiative rolls (reroll if duplicate)"
+  If Talent$ = "3-6" Then ClassTalent$ = "Your Backstab deals +1 dice of damage"
+  If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Charisma stat"
+  If Talent$ = "10-11" Then ClassTalent$ = "+1 to melee and ranged attacks"
+  If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 Wizard:
@@ -301,6 +325,12 @@ Wizard:
   ClassFeature1$ = "You know two additional common languages and two rare languages"
   ClassFeature2$ = "Learning Spells. You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check."
   ClassFeature3$ = "Spellcasting. You can cast wizard spells you know."
+  Gosub GetTalent
+  If Talent$ = "2" Then ClassTalent$ = "Make 1 random magic item of a type you choose"
+  If Talent$ = "3-6" Then ClassTalent$ = "+2 to Intelligence stat or +1 to wizard spellcasting checks"
+  If Talent$ = "7-9" Then ClassTalent$ = "Gain advantage on casting one spell you know"
+  If Talent$ = "10-11" Then ClassTalent$ = "Learn one additional wizard spell of any tier you know"
+  If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 ZeroLevel:
@@ -312,6 +342,7 @@ ZeroLevel:
   ClassFeature1$ = "Beginner's luck, you can wield all gear until 1st level."
   ClassFeature2$ = " "
   ClassFeature3$ = " "
+  ClassTalent$ = " "
 Return
 
 FixHP:
@@ -324,6 +355,17 @@ FixHP:
   If CONSTITUTION$ = "+3" Then HITPOINTS = HITPOINTS + 3
   If CONSTITUTION$ = "+4" Then HITPOINTS = HITPOINTS + 4
   If HITPOINTS < 1 Then HITPOINTS = 1
+Return
+
+GetTalent:
+  Dice(1)  = Int(Rnd * 6) + 1
+  Dice(2)  = Int(Rnd * 6) + 1
+  Dice(3)  = Dice(1) + Dice(2)
+  If Dice(3) = 2 Then Talent$ = "2"
+  If Dice(3) = 3 or Dice(3) = 4 or Dice(3) = 4 or Dice(3) = 5 or Dice(3) = 6  Then Talent$ = "3-6"
+  If Dice(3) = 7 or Dice(3) = 7 or Dice(3) = 8 or Dice(3) = 9 Then Talent$ = "7-9"
+  If Dice(3) = 10 or Dice(3) = 11 Then Talent$ = "10-11"
+  If Dice(3) = 12 Then Talent$ = "12"
 Return
 
 ' Ends the program
