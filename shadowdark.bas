@@ -153,7 +153,7 @@ Print: Print "What is your Name"
   Print #1, "Ancestry " ; Ancestry$
   Print #1, "Background: "; Back$
   Print #1, "Character Class: "; CLASS$
-  Print #1, "XP: ________"
+  Print #1, "XP:    _____"
   Print #1, "Level: _____"
   Print #1, "------------------------------"
   Print #1,
