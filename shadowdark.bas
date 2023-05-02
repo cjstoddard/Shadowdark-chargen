@@ -330,7 +330,7 @@ Return
 
 ZeroLevel:
   CLASS$ = "Zero Level"
-  HITPOINTS = 1
+  HITPOINTS = 0
   GoSub FixHP
   Weapon$ = "Weapons: All weapons until 1st level"
   Armor$ = "Armor: All armor and shields until 1st level"
