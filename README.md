@@ -17,7 +17,7 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-This is a commandline, text program, there is fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
+This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 
 I am aware this is really bad code. I originally wrote this program back in the early 90's to roll up D&D characters. While I am capable of cleaning it up and making it into a decent program, I choose not to, I like the old school coding because it goes along with the old school feel of the Shadowdark RPG.
 
