@@ -26,3 +26,5 @@ There is a Linux binary in the bin folder, at some point I will add a pre compil
 Thank you to Kelsey Dionne for creating the Shadowdark RPG, your hard work and creativity is appreciated.
 
 https://www.thearcanelibrary.com/
+
+https://www.youtube.com/@TheArcaneLibrary
