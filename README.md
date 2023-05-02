@@ -17,9 +17,11 @@ qb64 -c shadowdark.bas
 
 Notes:
 
+This is a commandline, text program, there is fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
+
 I am aware this is really bad code. I originally wrote this program back in the early 90's to roll up D&D characters. While I am capable of cleaning it up and making it into a decent program, I choose not to, I like the old school coding because it goes along with the old school feel of the Shadowdark RPG.
 
-At some point I will add pre compiled Windows and Linux binaries for those who do not want to go to the trouble of downloading and installing QB64 or FreeBasic. Sorry OS X users, I do not own a Mac, you are on your own.
+There is a Linux binary in the bin folder, at some point I will add a pre compiled Windows binary for those who do not want to go to the trouble of downloading and installing QB64 or FreeBasic. Sorry OS X users, I do not own a Mac, you are on your own.
 
 Thank you to Kelsey Dionne for creating the Shadowdark RPG, your hard work and creativity is appreciated.
 
