@@ -278,20 +278,20 @@ If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribut
 Return
 
 Priest:
-  CLASS$ = "Priest"
-  HITPOINTS = Int(Rnd * 6) + 1
-  GoSub FixHP
-  Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword, staff, warhammer"
-  Armor$ = "Armor: All armor and shields"
-  ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
-  ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
-  ClassFeature3$ = "Spellcasting. You can cast priest spells you know."
-  Gosub GetTalent
-  If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
-  If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
-  If Talent$ = "7-9" Then ClassTalent$ = "+1 to priest spellcasting checks"
-  If Talent$ = "10-11" Then ClassTalent$ = "+2 to Strength or Wisdom stat"
-  If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+CLASS$ = "Priest"
+HITPOINTS = Int(Rnd * 6) + 1
+GoSub FixHP
+Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword, staff, warhammer"
+Armor$ = "Armor: All armor and shields"
+ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
+ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
+ClassFeature3$ = "Spellcasting. You can cast priest spells you know."
+GoSub GetTalent
+If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
+If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
+If Talent$ = "7-9" Then ClassTalent$ = "+1 to priest spellcasting checks"
+If Talent$ = "10-11" Then ClassTalent$ = "+2 to Strength or Wisdom stat"
+If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 Thief:
