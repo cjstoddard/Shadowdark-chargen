@@ -285,7 +285,7 @@ Priest:
   Armor$ = "Armor: All armor and shields"
   ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
   ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
-  ClassFeature3$ = "Deity. Choose a god to serve who matches your alignment. You have a holy symbol for your god (it takes up no gear slots)."
+  ClassFeature3$ = "Spellcasting. You can cast priest spells you know."
   Gosub GetTalent
   If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
   If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
