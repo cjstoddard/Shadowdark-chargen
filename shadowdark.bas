@@ -9,7 +9,7 @@
 ' Use this if compiling with FreeBasic
 Randomize (Timer, 3)
 ' Use this if compiling with qb64 or using QBasic
-'Randomize Timer
+' Randomize Timer
 
 DIM DICE(3)
 
