@@ -57,7 +57,7 @@ Ancestry:
         If CHOICER = 4 Then GoSub HalfOrc
         If CHOICER = 5 Then GoSub Halfling
         If CHOICER = 6 Then GoSub Human
-    If CHOICER > 6 Then GoTo Ancestry
+        If CHOICER > 6 Then GoTo Ancestry
 
 'Choose the class of the character
 ClassChoice:
@@ -184,7 +184,6 @@ Roll3d6:
     DICE(2) = Int(Rnd * 6) + 1
     DICE(3) = Int(Rnd * 6) + 1
     TOTAL = DICE(1) + DICE(2) + DICE(3)
-
 ' Assigns a die roll modifier based on the 3d6 rolls, based on the standard Modifier table.
     If TOTAL = 3 Then TOTAL$ = "-4"
     If TOTAL = 4 Then TOTAL$ = "-3"
@@ -213,13 +212,6 @@ ShowStat:
     Print "WIS: "; WISDOM; "/"; WISDOM$
     Print "CHR: "; CHARISMA; "/"; CHARISMA$
     Print
-Return
-
-'Asks a yes or no question
-YesNo:
-    Print "1 Yes"
-    Print "2 No"
-    Input YN
 Return
 
 ' Assigns Ancestry features
@@ -353,6 +345,7 @@ FixHP:
     If HITPOINTS < 1 Then HITPOINTS = 1
 ' This add 2 Hit Points if character is a Dwarf
     If Ancestry$ = "Dwarf" Then HITPOINTS = HITPOINTS + 2
+    If Ancestry$ = "Dwarf" Then Print "+2 HP have been added for being a Dwarf"
 Return
 
 'Rolls a random number to get the class talent
@@ -365,6 +358,15 @@ GetTalent:
         If DICE(3) = 7 Or DICE(3) = 7 Or DICE(3) = 8 Or DICE(3) = 9 Then Talent$ = "7-9"
         If DICE(3) = 10 Or DICE(3) = 11 Then Talent$ = "10-11"
         If DICE(3) = 12 Then Talent$ = "12"
+Return
+
+'Asks a yes or no question
+YesNo:
+    Print "1 Yes"
+    Print "2 No"
+    Input YN
+        If YN < 1 Then GoTo YesNo
+        If YN > 2 Then GoTo YesNo
 Return
 
 ' Ends the program

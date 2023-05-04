@@ -1,4 +1,4 @@
-# Shadowdark-chargen
+# Shadowdark Character Generator
 
 This program randomly generates a character for the Shadowdark RPG, Quickstart rules are availble at;
 
