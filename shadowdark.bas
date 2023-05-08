@@ -342,7 +342,7 @@ Ranger:
     Armor$ = "Armor: Leather armor, chainmail"
     ClassFeature1$ = "Wayfinder. You have advantage on checks associated with Rangers."
     ClassFeature2$ = "Herbalism. Make an INT check to find an herb you choose. If you fail, you can't try to find that herb again until you successfully complete a rest. Unused herbs loose thier effect in 3 rounds."
-    ClassFeature3$ = "  "
+    ClassFeature3$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "You deal d12 damage with one weapon type you choose"
         If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks and damage"
