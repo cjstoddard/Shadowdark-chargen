@@ -67,6 +67,7 @@ ClassChoice:
     Print " 3 Thief"
     Print " 4 Wizard"
     Print " 5 Zero Level"
+    Print " 6 Ranger"
     Input CHOICEC
         If CHOICEC < 1 Then GoTo ClassChoice
         If CHOICEC = 1 Then GoSub Fighter
@@ -74,7 +75,8 @@ ClassChoice:
         If CHOICEC = 3 Then GoSub Thief
         If CHOICEC = 4 Then GoSub Wizard
         If CHOICEC = 5 Then GoSub ZeroLevel
-        If CHOICEC > 5 Then GoTo ClassChoice
+        If CHOICEC = 6 Then GoSub Ranger
+        If CHOICEC > 6 Then GoTo ClassChoice
 
 ' Randomly assigns the characters background
 Background:
@@ -330,6 +332,23 @@ ZeroLevel:
     ClassFeature2$ = " "
     ClassFeature3$ = " "
     ClassTalent$ = " "
+Return
+
+Ranger:
+    CLASSTYPE$ = "Ranger"
+    HITPOINTS = Int(Rnd * 8) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Dagger, longbow, longsword, shortbow, shortsword, spear, staff"
+    Armor$ = "Armor: Leather armor, chainmail"
+    ClassFeature1$ = "Wayfinder. You have advantage on checks associated with Rangers."
+    ClassFeature2$ = "Herbalism. Make an INT check to find an herb you choose. If you fail, you can't try to find that herb again until you successfully complete a rest. Unused herbs loose thier effect in 3 rounds."
+    ClassFeature3$ = "  "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "You deal d12 damage with one weapon type you choose"
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks and damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 Strength, Dexterity, or Intellegence"
+        If Talent$ = "10-11" Then ClassTalent$ = "You gain ADV on Herbalism checks for an herb you choose"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
 Return
 
 'Adds Con bonus to Hit Points

@@ -17,6 +17,8 @@ qb64 -c shadowdark.bas
 
 Notes:
 
+I have added the Ranger class as it stands right now, but please be aware that the class is still in development and may change before it is offically published. I am aware there are other classes availble in the Cursed Scroll magazine. Unfortunately these classes are not open content, therefore I will not be adding them until that changes.
+
 This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 
 I am aware this is really bad code. I originally wrote this program back in the early 90's to roll up D&D characters. While I am capable of cleaning it up and making it into a decent program, I choose not to, I like the old school coding because it goes along with the old school feel of the Shadowdark RPG.
