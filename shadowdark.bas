@@ -319,9 +319,10 @@ Wizard:
     GoSub FixHP
     Weapon$ = "Weapons: Dagger, staff"
     Armor$ = "Armor: None"
-    ClassFeature1$ = "You know two additional common languages and two rare languages"
-    ClassFeature2$ = "Learning Spells. You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check."
-    ClassFeature3$ = "Spellcasting. You can cast wizard spells you know."
+    Language$ = Language$ + " and you know two additional common languages and two rare languages"
+    ClassFeature1$ = "Learning Spells. You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check."
+    ClassFeature2$ = "Spellcasting. You can cast wizard spells you know."
+    ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Make 1 random magic item of a type you choose"
