@@ -99,31 +99,13 @@ ClassChoice:
         If CHOICEC = 15 Then GoSub Seer
         If CHOICEC > 15 Then GoTo ClassChoice
 
-' Randomly assigns the characters background
-Background:
-    DICE(1) = Int(Rnd * 20) + 1
-        If DICE(1) = 1 Then Back$ = "Urchin"
-        If DICE(1) = 2 Then Back$ = "Wanted"
-        If DICE(1) = 3 Then Back$ = "Cult Initiate"
-        If DICE(1) = 4 Then Back$ = "Thieves' Guild"
-        If DICE(1) = 5 Then Back$ = "Banished"
-        If DICE(1) = 6 Then Back$ = "Orphaned"
-        If DICE(1) = 7 Then Back$ = "Wizard's Apprentice"
-        If DICE(1) = 8 Then Back$ = "Jeweler"
-        If DICE(1) = 9 Then Back$ = "Herbalist"
-        If DICE(1) = 10 Then Back$ = "Barbarian"
-        If DICE(1) = 11 Then Back$ = "Mercenary"
-        If DICE(1) = 12 Then Back$ = "Sailor"
-        If DICE(1) = 13 Then Back$ = "Acolyte"
-        If DICE(1) = 14 Then Back$ = "Soldier"
-        If DICE(1) = 15 Then Back$ = "Ranger"
-        If DICE(1) = 16 Then Back$ = "Scout"
-        If DICE(1) = 17 Then Back$ = "Minstrel"
-        If DICE(1) = 18 Then Back$ = "Scholar"
-        If DICE(1) = 19 Then Back$ = "Noble"
-        If DICE(1) = 20 Then Back$ = "Chirurgeon"
+Print "Are you using Nord Backgrounds?"
+Print "If you don't know what that means, choose No."
+GoSub YesNo
+    If YN = 1 Then GoSub NordBackground
+    If YN = 2 Then GoSub Background
 
-    ' Prints out the finished character to the screen
+' Prints out the finished character to the screen
     Print: Print "What is your Name"
     Input NAME$
     Print
@@ -551,6 +533,56 @@ Seer:
         If Talent$ = "7-9" Then ClassTalent$ = "+2 to WIS or CHA stat, or +1 to spellcasting checks"
         If Talent$ = "10-11" Then ClassTalent$ = "Increase the die category of your Destined talent by one"
         If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
+Return
+
+' Randomly assigns the characters background
+Background:
+    DICE(1) = Int(Rnd * 20) + 1
+        If DICE(1) = 1 Then Back$ = "Urchin"
+        If DICE(1) = 2 Then Back$ = "Wanted"
+        If DICE(1) = 3 Then Back$ = "Cult Initiate"
+        If DICE(1) = 4 Then Back$ = "Thieves' Guild"
+        If DICE(1) = 5 Then Back$ = "Banished"
+        If DICE(1) = 6 Then Back$ = "Orphaned"
+        If DICE(1) = 7 Then Back$ = "Wizard's Apprentice"
+        If DICE(1) = 8 Then Back$ = "Jeweler"
+        If DICE(1) = 9 Then Back$ = "Herbalist"
+        If DICE(1) = 10 Then Back$ = "Barbarian"
+        If DICE(1) = 11 Then Back$ = "Mercenary"
+        If DICE(1) = 12 Then Back$ = "Sailor"
+        If DICE(1) = 13 Then Back$ = "Acolyte"
+        If DICE(1) = 14 Then Back$ = "Soldier"
+        If DICE(1) = 15 Then Back$ = "Ranger"
+        If DICE(1) = 16 Then Back$ = "Scout"
+        If DICE(1) = 17 Then Back$ = "Minstrel"
+        If DICE(1) = 18 Then Back$ = "Scholar"
+        If DICE(1) = 19 Then Back$ = "Noble"
+        If DICE(1) = 20 Then Back$ = "Chirurgeon"
+Return
+
+' Randomly assigns the characters background
+NordBackground:
+    DICE(1) = Int(Rnd * 20) + 1
+        If DICE(1) = 1 Then Back$ = "Freed"
+        If DICE(1) = 2 Then Back$ = "Displaced"
+        If DICE(1) = 3 Then Back$ = "Criminal"
+        If DICE(1) = 4 Then Back$ = "Drifter"
+        If DICE(1) = 5 Then Back$ = "Crop Farmer"
+        If DICE(1) = 6 Then Back$ = "Livestock Farmer"
+        If DICE(1) = 7 Then Back$ = "Hunter"
+        If DICE(1) = 8 Then Back$ = "Fisher"
+        If DICE(1) = 9 Then Back$ = "Enforcer"
+        If DICE(1) = 10 Then Back$ = "Trader"
+        If DICE(1) = 11 Then Back$ = "Crafter"
+        If DICE(1) = 12 Then Back$ = "Bowyer"
+        If DICE(1) = 13 Then Back$ = "Seer's Apprentice"
+        If DICE(1) = 14 Then Back$ = "Shipwright"
+        If DICE(1) = 15 Then Back$ = "Blacksmith"
+        If DICE(1) = 16 Then Back$ = "Far Traveler"
+        If DICE(1) = 17 Then Back$ = "Skald"
+        If DICE(1) = 18 Then Back$ = "Heroborn"
+        If DICE(1) = 19 Then Back$ = "Nobleborn"
+        If DICE(1) = 20 Then Back$ = "God's Blood"
 Return
 
 'Adds Con bonus to Hit Points
