@@ -283,9 +283,10 @@ Priest:
     GoSub FixHP
     Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword, staff, warhammer"
     Armor$ = "Armor: All armor and shields"
-    ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
-    ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
-    ClassFeature3$ = "Spellcasting. You can cast priest spells you know."
+    Language$ = Language$ +  " and you know either Celestial, Diabolic, or Primordial."
+    ClassFeature1$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
+    ClassFeature2$ = "Spellcasting. You can cast priest spells you know."
+    ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
