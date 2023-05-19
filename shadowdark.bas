@@ -62,12 +62,24 @@ Ancestry:
 'Choose the class of the character
 ClassChoice:
     Print "Choose your Class:"
+    Print "--Core--"
     Print " 1 Fighter"
     Print " 2 Priest"
     Print " 3 Thief"
     Print " 4 Wizard"
     Print " 5 Zero Level"
+    Print "--Kickstarter--"
     Print " 6 Ranger"
+    Print " 7 Bard"
+    Print "--Cursed Scroll--"
+    Print " 8 Knight of St. Ydris Class"
+    Print " 9 Warlock"
+    Print " 10 Witch"
+    Print " 11 Desert Raider"
+    Print " 12 Pit Fighter"
+    Print " 13 Ras-Godai"
+    Print " 14 Sea Wolf"
+    Print " 15 Seer"
     Input CHOICEC
         If CHOICEC < 1 Then GoTo ClassChoice
         If CHOICEC = 1 Then GoSub Fighter
@@ -76,7 +88,16 @@ ClassChoice:
         If CHOICEC = 4 Then GoSub Wizard
         If CHOICEC = 5 Then GoSub ZeroLevel
         If CHOICEC = 6 Then GoSub Ranger
-        If CHOICEC > 6 Then GoTo ClassChoice
+        If CHOICEC = 7 Then GoSub Bard
+        If CHOICEC = 8 Then GoSub Knight
+        If CHOICEC = 9 Then GoSub Warlock
+        If CHOICEC = 10 Then GoSub Witch
+        If CHOICEC = 11 Then GoSub DesertRaider
+        If CHOICEC = 12 Then GoSub PitFighter
+        If CHOICEC = 13 Then GoSub RasGodai
+        If CHOICEC = 14 Then GoSub SeaWolf
+        If CHOICEC = 15 Then GoSub Seer
+        If CHOICEC > 15 Then GoTo ClassChoice
 
 ' Randomly assigns the characters background
 Background:
@@ -134,6 +155,7 @@ Background:
     Print Tab(5); ClassFeature1$
     Print Tab(5); ClassFeature2$
     Print Tab(5); ClassFeature3$
+    Print Tab(5); ClassFeature4$
     Print "Class Talent: "; ClassTalent$
     Print "------------------------------"
     Print "EQUIPMENT:"
@@ -173,6 +195,7 @@ Background:
     Print #1, Tab(5); ClassFeature1$
     Print #1, Tab(5); ClassFeature2$
     Print #1, Tab(5); ClassFeature3$
+    Print #1, Tab(5); ClassFeature4$
     Print #1, "Class Talent: "; ClassTalent$
     Print #1, "------------------------------"
     Print #1, "EQUIPMENT:"
@@ -263,6 +286,7 @@ Fighter:
     ClassFeature1$ = "Hauler. Add your Constitution modifier, if positive, to your gear slots."
     ClassFeature2$ = "Weapon Mastery. Choose one type of weapon, such as longswords. You gain +1 to attack and damage with that weapon type. In addition, add half your level to these rolls (round down)."
     ClassFeature3$ = "Grit. Choose Strength or Dexterity. You have advantage on checks of that type to overcome an opposing force,such as kicking open a stuck door (Strength) or slipping free of rusty chains (Dexterity)."
+    ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Gain Weapon Mastery with one additional weapon"
         If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee and ranged attacks"
@@ -280,6 +304,7 @@ Priest:
     ClassFeature1$ = "You know either Celestial, Diabolic, or Primordial."
     ClassFeature2$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
     ClassFeature3$ = "Spellcasting. You can cast priest spells you know."
+    ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
         If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
@@ -297,6 +322,7 @@ Thief:
     ClassFeature1$ = "Backstab. If you hit a creature who is unaware of your attack, you deal an extra weapon die of damage. Add additional weapon dice of damage equal to half your level (round down)."
     ClassFeature2$ = "Thievery. You are adept at thieving skills and have the necessary tools of the trade secreted on your person (they take up no gear slots)."
     ClassFeature3$ = "You are trained in the thievery tasks and have advantage on any associated checks"
+    ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Gain advantage on initiative rolls (reroll if duplicate)"
         If Talent$ = "3-6" Then ClassTalent$ = "Your Backstab deals +1 dice of damage"
@@ -314,6 +340,7 @@ Wizard:
     ClassFeature1$ = "You know two additional common languages and two rare languages"
     ClassFeature2$ = "Learning Spells. You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check."
     ClassFeature3$ = "Spellcasting. You can cast wizard spells you know."
+    ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Make 1 random magic item of a type you choose"
         If Talent$ = "3-6" Then ClassTalent$ = "+2 to Intelligence stat or +1 to wizard spellcasting checks"
@@ -332,6 +359,7 @@ ZeroLevel:
     ClassFeature2$ = " "
     ClassFeature3$ = " "
     ClassTalent$ = " "
+    ClassFeature4$ = " "
 Return
 
 Ranger:
@@ -349,6 +377,180 @@ Ranger:
         If Talent$ = "7-9" Then ClassTalent$ = "+2 Strength, Dexterity, or Intellegence"
         If Talent$ = "10-11" Then ClassTalent$ = "You gain ADV on Herbalism checks for an herb you choose"
         If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+Return
+
+Bard:
+    CLASSTYPE$ = "Bard"
+    HITPOINTS = Int(Rnd * 6) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: "
+    Armor$ = "Armor: "
+    ClassFeature1$ = " "
+    ClassFeature2$ = " "
+    ClassFeature3$ = " "
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = " "
+        If Talent$ = "3-6" Then ClassTalent$ = " "
+        If Talent$ = "7-9" Then ClassTalent$ = " "
+        If Talent$ = "10-11" Then ClassTalent$ = " "
+        If Talent$ = "12" Then ClassTalent$ = " "
+Return
+
+Knight:
+    CLASSTYPE$ = "Knight of St. Ydris"
+    HITPOINTS = Int(Rnd * 6) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: All melee weapons, crossbow "
+    Armor$ = "Armor: All armor and shields"
+    ClassFeature1$ = "Languages. You know Diabolic."
+    ClassFeature2$ = "Demonic Possession"
+    ClassFeature3$ = "Spellcasting. You can cast witch spells you know. "
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "Your Demonic Possession bonus increases by 1 point"
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Constitution stat"
+        If Talent$ = "10-11" Then ClassTalent$ = "+2 to Charisma stat or +1 to witch spellcasting checks"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
+Return
+
+Warlock:
+    CLASSTYPE$ = "Warlock"
+    HITPOINTS = Int(Rnd * 6) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword"
+    Armor$ = "Armor: Leather armor, chainmail, and shields"
+    ClassFeature1$ = "Languages. You know either Celestial, Diabolic, Draconic, Primordial, or Sylvan."
+    ClassFeature2$ = "Patron. Choose a patron to serve (see pg. 17). Your patron is thesource of your supernatural gifts."
+    ClassFeature3$ = "Patron Boon. At 1st level, you gain a random Patron Boontalent (see pg. 18) based onyour chosen patron."
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "Roll a Patron Boon from any patron; an unexplained gift"
+        If Talent$ = "3-6" Then ClassTalent$ = "Add +1 point to two stats (they must be different)"
+        If Talent$ = "7-9" Then ClassTalent$ = "+1 to melee or ranged attacks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Roll two Patron Boons and choose one to keep"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
+Return
+
+Witch:
+    CLASSTYPE$ = "Witch"
+    HITPOINTS = Int(Rnd * 4) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Dagger, staff"
+    Armor$ = "Armor: Leather armor"
+    ClassFeature1$ = "Languages. You know Diabolic, Primordial, and Sylvan. "
+    ClassFeature2$ = "Familiar. You have a small animal such as a raven, rat, or frog who serves you loyally. It can speak Common."
+    ClassFeature3$ = "Spellcasting. You can cast witch spells you know."
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "1/day, teleport to your familiar's location as a move"
+        If Talent$ = "3-6" Then ClassTalent$ = "+2 to Charisma stat or +1 to witch spellcasting checks"
+        If Talent$ = "7-9" Then ClassTalent$ = "Gain advantage on casting one spell you know"
+        If Talent$ = "10-11" Then ClassTalent$ = "Learn an additional witch spell of any tier you can cast"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
+Return
+
+DesertRaider:
+    CLASSTYPE$ = "Desert Raider"
+    HITPOINTS = Int(Rnd * 8) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Club, dagger, javelin, longsword, pike (see New Weapons, pg. 17), shortbow, scimitar, spear, whip"
+    Armor$ = "Armor: Leather armor, shields"
+    ClassFeature1$ = "Charge. 3/day, you can charge into combat by moving at least near before attacking."
+    ClassFeature2$ = "Mount. You have a common camel or horse with a reliable or lovely demeanor (see pg. 29). It comes when you call and never spooks. You can only have one such mount at a time."
+    ClassFeature3$ = " "
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "You can use any rider-bearing creature as your mount"
+        If Talent$ = "3-6" Then ClassTalent$ = "You gain +1 to attacks or damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Dexterity stat, or +1 to melee attacks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Gain an additional use of your Charge talent each day"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one Talent or +2 points to distribute to stats"
+Return
+
+PitFighter:
+    CLASSTYPE$ = "Pit Fighter"
+    HITPOINTS = Int(Rnd * 8) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: All weapons"
+    Armor$ = "Armor: Leather armor, shields"
+    ClassFeature1$ = "Flourish. 3/day, regain 1d6 hit points when you hit an enemy with a melee attack."
+    ClassFeature2$ = "Implacable. You have advantage on Constitution checks to resist injury, poison, or endure extreme environments."
+    ClassFeature3$ = "Last Stand. You get up from dying with 1 hit point on a natural d20 roll of 18-20."
+    ClassFeature4$ = "Relentless. 3/day, when you are reduced to 0 HP, make a DC 18 Constitution check (the Implacable talent applies to this roll). On a success, you instead go to 1 HP."
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "1/day, ignore all damage and effects from one attack"
+        If Talent$ = "3-6" Then ClassTalent$ = "You gain +1 to melee weapon damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Constitution stat, or +1 to melee attacks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Increase the HP you gain from Flourish by 1d6"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
+Return
+
+RasGodai:
+    CLASSTYPE$ = "Ras-Godai"
+    HITPOINTS = Int(Rnd * 6) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Blowgun, (see pg. 17), bolas, dagger, razor chain, scimitar, shuriken, spear"
+    Armor$ = "Armor: Leather armor"
+    ClassFeature1$ = "Languages. You know Diabolic."
+    ClassFeature2$ = "Assassinate. When you attack a surprised target, you deal double damage against it."
+    ClassFeature3$ = "Smoke Step. 3/day, teleport to a location you can see within near. This does not use your action."
+    BLTalent = Int(Rnd * 12) + 1
+        If BLTalent = 1 Then ClassFeature4$ = "You deal triple damage with your Assassinate talent"
+        If BLTalent = 2 Then ClassFeature4$ = "1/day, paralyze a target of LV 9 or less for 1d4 rounds when you damage it with a weapon"
+        If BLTalent = 3 Then ClassFeature4$ = "You have advantage on Dexterity checks to avoid entrapment or injury"
+        If BLTalent = 4 Then ClassFeature4$ = "You gain +1 to your AC when wielding a melee weapon in each hand"
+        If BLTalent = 5 Then ClassFeature4$ = "You gain an additional hit points die"
+        If BLTalent = 6 Then ClassFeature4$ = "You have advantage on DEX checks to sneak and hide"
+        If BLTalent = 7 Then ClassFeature4$ = "When enemies who can see you make a morale check, the DC is 18 instead of 15"
+        If BLTalent = 8 Then ClassFeature4$ = "1/day, you can walk on water as if it were solid for 1d4 rds"
+        If BLTalent = 9 Then ClassFeature4$ = "1/day, choose a living creature of LV 5 or less you can see within near; it must pass a DC 15 CON check or fall asleep"
+        If BLTalent = 10 Then ClassFeature4$ = "1/day, you can walk on sheer surfaces like walls for 1d4 rds"
+        If BLTalent = 11 Then ClassFeature4$ = "You deal +1 damage with melee weapons"
+        If BLTalent = 12 Then ClassFeature4$ = "1/day, choose a creature of LV 9 or less you can see; it must pass a DC 15 WIS check or it can't see or hear you for 1d4 rounds"
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "You are trained in the use of poisons (see pg. 27)"
+        If Talent$ = "3-6" Then ClassTalent$ = "Roll an additional talent on the Black Lotus Talents table"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Dexterity stat, or +1 to melee attacks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Gain an additional use of your Smoke Step talent"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
+Return
+
+SeaWolf:
+    CLASSTYPE$ = "Sea Wolf"
+    HITPOINTS = Int(Rnd * 8) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Dagger, greataxe, handaxe (see New Gear on pg. 20), longbow, longsword, spear"
+    Armor$ = "Armor: Leather armor, chainmail, shields"
+    ClassFeature1$ = "Seafarer. You have advantage on checks related to navigating and crewing boats."
+    ClassFeature2$ = "Old Gods. Each day, your purpose aligns with one of the Old Gods (pg. 17)."
+    ClassFeature3$ = "Shield Wall. If you wield a shield, you can use your action to take a defensive stance. Your AC becomes 20 during this time."
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "1/day, go berserk: immune to damage for 3 rounds"
+        If Talent$ = "3-6" Then ClassTalent$ = "Your attacks deal +1 damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Constitution stat, or +1 to attacks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Duality; choose two different Old Gods effects each day"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
+Return
+
+Seer:
+    CLASSTYPE$ = "Seer"
+    HITPOINTS = Int(Rnd * 6) + 1
+    GoSub FixHP
+    Weapon$ = "Weapons: Dagger, stave, spear"
+    Armor$ = "Armor: Leather armor"
+    ClassFeature1$ = "Destined. Whenever you use a luck token, add 1d6 to the roll."
+    ClassFeature2$ = "Omen. 3/day, you can make a DC 9 WIS check. On a success, gain a luck token (you can't have more than one luck token at a time)."
+    ClassFeature3$ = "Spellcasting. You can cast seer spells you know. You know one tier 1 spell of your choice from the seer spell list (see pg. 30)."
+    ClassFeature4$ = " "
+    GoSub GetTalent
+        If Talent$ = "2" Then ClassTalent$ = "Learn an additional seer spell from any tier you can cast"
+        If Talent$ = "3-6" Then ClassTalent$ = "Gain an additional use of your Omen talent each day"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 to WIS or CHA stat, or +1 to spellcasting checks"
+        If Talent$ = "10-11" Then ClassTalent$ = "Increase the die category of your Destined talent by one"
+        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
 Return
 
 'Adds Con bonus to Hit Points

@@ -17,7 +17,7 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-I have added the Ranger class as it stands right now, but please be aware that the class is still in development and may change before it is offically published. I am aware there are other classes availble in the Cursed Scroll magazine. Unfortunately these classes are not open content, therefore I will not be adding them until that changes.
+I have added the Ranger class as well as all the classes that have appeared in Cured Scroll 1-3. Bard is on the list, but does not do anything at the moment because it is still under development, I will be adding it in the next few days.
 
 This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 
