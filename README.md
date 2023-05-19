@@ -9,7 +9,7 @@ This program was writen for Qbasic and can be compiled with QB64 or FreeBasic;
 
 FreeBasic is available at https://www.freebasic.net/. To compile under FreeBasic, use the folowing;
 
-fbc -lang qb shadowdark.bas -x bin/shadowdark 
+fbc -lang qb shadowdark.bas -x bin/shadowdark.lnx
 
 QB64 is availble from https://qb64.com/. If you are using QB64 or have downloaded Qbasic from the internet, the first line of the program must be changed from Randomize (Timer, 3) to Randomize Timer. To compile under QB64, use the folowing;
 
@@ -17,7 +17,7 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-I have added the Ranger class as well as all the classes that have appeared in Cured Scroll 1-3. Bard is on the list, but does not do anything at the moment because it is still under development, I will be adding it in the next few days.
+I have added the Ranger class as well as the classes and backgrounds that have appeared in Cursed Scroll 1-3. Bard is on the list, but does not do anything at the moment because it is still under development, I will be adding it in the next few days.
 
 This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 
