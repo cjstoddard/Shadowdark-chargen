@@ -72,7 +72,7 @@ ClassChoice:
     Print " 6 Ranger"
     Print " 7 Bard"
     Print "--Cursed Scroll--"
-    Print " 8 Knight of St. Ydris Class"
+    Print " 8 Knight of St. Ydris"
     Print " 9 Warlock"
     Print " 10 Witch"
     Print " 11 Desert Raider"
