@@ -340,8 +340,8 @@ ZeroLevel:
     ClassFeature1$ = "Beginner's luck, you can wield all gear until 1st level."
     ClassFeature2$ = " "
     ClassFeature3$ = " "
-    ClassTalent$ = " "
     ClassFeature4$ = " "
+    ClassTalent$ = " "
 Return
 
 Ranger:
@@ -353,6 +353,7 @@ Ranger:
     ClassFeature1$ = "Wayfinder. You have advantage on checks associated with Rangers."
     ClassFeature2$ = "Herbalism. Make an INT check to find an herb you choose. If you fail, you can't try to find that herb again until you successfully complete a rest. Unused herbs loose thier effect in 3 rounds."
     ClassFeature3$ = " "
+    ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "You deal d12 damage with one weapon type you choose"
         If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks and damage"
@@ -365,18 +366,19 @@ Bard:
     CLASSTYPE$ = "Bard"
     HITPOINTS = Int(Rnd * 6) + 1
     GoSub FixHP
-    Weapon$ = "Weapons: "
-    Armor$ = "Armor: "
-    ClassFeature1$ = " "
-    ClassFeature2$ = " "
-    ClassFeature3$ = " "
-    ClassFeature4$ = " "
+    Weapon$ = "Weapons: Crossbow, dagger, mace, shortbow, shortsword, spear, staff"
+    Armor$ = "Armor: Leather armor, chainmail, shields"
+    Lanuage$ =  Lanuage$ + " and You know four additional common languages and one rare language."
+    ClassFeature1$ = "Bardic Arts. You're trained in oration, performing arts, lore, and diplomacy. You have advantage on related checks."
+    ClassFeature2$ = "Inspire. DC 12 CHA check to give a luck token to one creature in near. If you fail, you can't use this again until you successfully rest."
+    ClassFeature3$ = "Magical Dabbler. You can activate any spell scroll or wand using Charisma as your spellcasting stat."
+    ClassFeature4$ = "Prolific. Add 1 + half your level (round down) to any roll for a downtime activity. This bonus applies to all participants who carouse with you."
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = " "
-        If Talent$ = "3-6" Then ClassTalent$ = " "
-        If Talent$ = "7-9" Then ClassTalent$ = " "
-        If Talent$ = "10-11" Then ClassTalent$ = " "
-        If Talent$ = "12" Then ClassTalent$ = " "
+        If Talent$ = "2" Then ClassTalent$ = "1/day, DC 15 CHA to hypnotize a target in near, focus duration"
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks or +1 to any stat"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 points to distribute to any stats"
+        If Talent$ = "10-11" Then ClassTalent$ = "The DC to use Inspire becomes 9"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent"
 Return
 
 Knight:
@@ -385,9 +387,10 @@ Knight:
     GoSub FixHP
     Weapon$ = "Weapons: All melee weapons, crossbow "
     Armor$ = "Armor: All armor and shields"
-    ClassFeature1$ = "Languages. You know Diabolic."
-    ClassFeature2$ = "Demonic Possession"
-    ClassFeature3$ = "Spellcasting. You can cast witch spells you know. "
+    Lanuage$ =  Lanuage$ + " and you know Diabolic."
+    ClassFeature1$ = "Demonic Possession"
+    ClassFeature2$ = "Spellcasting. You can cast witch spells you know. "
+    ClassFeature3$ = "+2 points to distribute to any stats"
     ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Your Demonic Possession bonus increases by 1 point"
@@ -403,9 +406,10 @@ Warlock:
     GoSub FixHP
     Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword"
     Armor$ = "Armor: Leather armor, chainmail, and shields"
-    ClassFeature1$ = "Languages. You know either Celestial, Diabolic, Draconic, Primordial, or Sylvan."
-    ClassFeature2$ = "Patron. Choose a patron to serve (see pg. 17). Your patron is thesource of your supernatural gifts."
-    ClassFeature3$ = "Patron Boon. At 1st level, you gain a random Patron Boontalent (see pg. 18) based onyour chosen patron."
+    Lanuage$ =  Lanuage$ + " and you know either Celestial, Diabolic, Draconic, Primordial, or Sylvan."
+    ClassFeature1$ = "Patron. Choose a patron to serve (see pg. 17). Your patron is thesource of your supernatural gifts."
+    ClassFeature2$ = "Patron Boon. At 1st level, you gain a random Patron Boontalent (see pg. 18) based onyour chosen patron."
+    ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "Roll a Patron Boon from any patron; an unexplained gift"
@@ -421,9 +425,10 @@ Witch:
     GoSub FixHP
     Weapon$ = "Weapons: Dagger, staff"
     Armor$ = "Armor: Leather armor"
-    ClassFeature1$ = "Languages. You know Diabolic, Primordial, and Sylvan. "
+    Lanuage$ =  Lanuage$ + " and you know Diabolic, Primordial, and Sylvan. "
     ClassFeature2$ = "Familiar. You have a small animal such as a raven, rat, or frog who serves you loyally. It can speak Common."
     ClassFeature3$ = "Spellcasting. You can cast witch spells you know."
+    ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
         If Talent$ = "2" Then ClassTalent$ = "1/day, teleport to your familiar's location as a move"
@@ -475,7 +480,7 @@ RasGodai:
     GoSub FixHP
     Weapon$ = "Weapons: Blowgun, (see pg. 17), bolas, dagger, razor chain, scimitar, shuriken, spear"
     Armor$ = "Armor: Leather armor"
-    ClassFeature1$ = "Languages. You know Diabolic."
+    Language$ = Language$ + " and you know Diabolic."
     ClassFeature2$ = "Assassinate. When you attack a surprised target, you deal double damage against it."
     ClassFeature3$ = "Smoke Step. 3/day, teleport to a location you can see within near. This does not use your action."
     BLTalent = Int(Rnd * 12) + 1
