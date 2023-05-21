@@ -152,13 +152,6 @@ GoSub YesNo
     Print #1,
     Print #1, "Shadowdark Character Sheet 1.0"
     Print #1, "------------------------------"
-    Print #1, "This Shadowdark Character Generator"
-    Print #1, "is an independent product published"
-    Print #1, "under the Shadowdark RPG Third-Party"
-    Print #1, "License and is not affiliated with"
-    Print #1, "The Arcane Library, LLC. Shadowdark"
-    Print #1, "RPG © 2023 The Arcane Library, LLC."
-    Print #1, "------------------------------"
     Print #1, "Character Name: "; NAME$
     Print #1, "Ancestry "; Ancestry$
     Print #1, "Background: "; Back$
