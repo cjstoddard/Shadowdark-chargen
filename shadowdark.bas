@@ -16,7 +16,14 @@ Dim DICE(3)
 ' Main routine for generating the character
 Main:
     Cls
-    Print "This Shadowdark Character Generator is an independent product published under the Shadowdark RPG Third-Party License and is not affiliated with The Arcane Library, LLC. Shadowdark RPG © 2023 The Arcane Library, LLC."
+    Print "-------------------------------------------------------"
+    Print "Legal Statement:"
+    Print "This Shadowdark Character Generator is an independent"
+    Print "product published under the Shadowdark RPG Third-Party"
+    Print "License and is not affiliated with The Arcane Library,"
+    Print "LLC. Shadowdark RPG © 2023 The Arcane Library, LLC."
+    Print "-------------------------------------------------------"
+    Print
     GoSub Roll3d6
     STRENGTH = TOTAL
     STRENGTH$ = TOTAL$
