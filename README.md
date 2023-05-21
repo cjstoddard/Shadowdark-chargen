@@ -30,3 +30,6 @@ Thank you to Kelsey Dionne for creating the Shadowdark RPG, your hard work and c
 https://www.thearcanelibrary.com/
 
 https://www.youtube.com/@TheArcaneLibrary
+
+Legal Stuff:
+This Shadowdark Character Generator is an independent product published under the Shadowdark RPG Third-Party License and is not affiliated with The Arcane Library, LLC. Shadowdark RPG © 2023 The Arcane Library, LLC."

@@ -16,6 +16,7 @@ Dim DICE(3)
 ' Main routine for generating the character
 Main:
     Cls
+    Print "This Shadowdark Character Generator is an independent product published under the Shadowdark RPG Third-Party License and is not affiliated with The Arcane Library, LLC. Shadowdark RPG © 2023 The Arcane Library, LLC."
     GoSub Roll3d6
     STRENGTH = TOTAL
     STRENGTH$ = TOTAL$
@@ -150,6 +151,13 @@ GoSub YesNo
     Open NAME$ + ".txt" For Output As #1
     Print #1,
     Print #1, "Shadowdark Character Sheet 1.0"
+    Print #1, "------------------------------"
+    Print #1, "This Shadowdark Character Generator"
+    Print #1, "is an independent product published"
+    Print #1, "under the Shadowdark RPG Third-Party"
+    Print #1, "License and is not affiliated with"
+    Print #1, "The Arcane Library, LLC. Shadowdark"
+    Print #1, "RPG © 2023 The Arcane Library, LLC."
     Print #1, "------------------------------"
     Print #1, "Character Name: "; NAME$
     Print #1, "Ancestry "; Ancestry$
