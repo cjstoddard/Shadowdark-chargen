@@ -15,7 +15,7 @@ For Linux:
 
 For Windows:
 
-    fbc64 -lang qb shadowdark.bas -x bin/shadowdark.exe
+    fbc64 -lang qb shadowdark.bas -x bin\shadowdark.exe
 
 QB64 is availble from https://qb64.com/. If you are using QB64 or have downloaded Qbasic from the internet, the first line of the program must be changed from Randomize (Timer, 3) to Randomize Timer. To compile under QB64, use the folowing;
 
