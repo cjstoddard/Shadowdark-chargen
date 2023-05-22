@@ -23,13 +23,13 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds, I have also rewritten the ancestry and class features so as not to be verbatum from the rule book.
+In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds, I have also rewritten the ancestry and class features so as not to be verbatum from the rule book. I have no paticular desire to go through the process of getting permission to use the Cursed Scroll classes and backgrounds. If someone wishes to fork my work and seek the appropriate lisence, please by all means do so. 
 
 I have added the Ranger and Bard classes, please keep in mind the Bard class is still under development and may change.
 
 This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 
-I am aware this is really bad code. I originally wrote this program back in the early 90's to roll up D&D characters. While I am capable of cleaning it up and making it into a decent program, I choose not to, I like the old school coding because it goes along with the old school feel of the Shadowdark RPG.
+I am aware this is really bad code. I originally wrote this program back in the early 90's to roll up D&D characters. While I am capable of cleaning it up and making it into a decent program, I choose not to, I like the old school coding because it goes along with the old school feel of the Shadowdark RPG. If you wish to fork my code into your own project, please feel free to do so, although honestly, I can't imagine why anyone would want to.
 
 There is a Linux (.lnx) and a Windows (.exe) binary in the bin folder for those of you who do not want to go to the trouble of downloading and installing QB64 or FreeBasic. I use Linux as my primary operating system, so the Windows binary may occassionally fall a few days behind the Linux binary. Sorry OS X users, I do not own a Mac, you are on your own.
 
