@@ -23,7 +23,9 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-I have added the Ranger class as well as the classes and backgrounds that have appeared in Cursed Scroll 1-3. The Bard class has been added, but it is still under development and may change.
+In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds.
+
+I have added the Ranger and Bard classes, please keep in mind the Bard class is still under development and may change.
 
 This is a commandline, text program, there is no fancy Windows GUI. The program will ask if you want to save the character, if you say yes, it will save it as a text file.
 

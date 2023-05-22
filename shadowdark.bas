@@ -79,15 +79,6 @@ ClassChoice:
     Print "--Kickstarter--"
     Print " 6 Ranger"
     Print " 7 Bard"
-    Print "--Cursed Scroll--"
-    Print " 8 Knight of St. Ydris"
-    Print " 9 Warlock"
-    Print " 10 Witch"
-    Print " 11 Desert Raider"
-    Print " 12 Pit Fighter"
-    Print " 13 Ras-Godai"
-    Print " 14 Sea Wolf"
-    Print " 15 Seer"
     Input CHOICEC
         If CHOICEC < 1 Then GoTo ClassChoice
         If CHOICEC = 1 Then GoSub Fighter
@@ -97,21 +88,31 @@ ClassChoice:
         If CHOICEC = 5 Then GoSub ZeroLevel
         If CHOICEC = 6 Then GoSub Ranger
         If CHOICEC = 7 Then GoSub Bard
-        If CHOICEC = 8 Then GoSub Knight
-        If CHOICEC = 9 Then GoSub Warlock
-        If CHOICEC = 10 Then GoSub Witch
-        If CHOICEC = 11 Then GoSub DesertRaider
-        If CHOICEC = 12 Then GoSub PitFighter
-        If CHOICEC = 13 Then GoSub RasGodai
-        If CHOICEC = 14 Then GoSub SeaWolf
-        If CHOICEC = 15 Then GoSub Seer
-        If CHOICEC > 15 Then GoTo ClassChoice
+        If CHOICEC > 7 Then GoTo ClassChoice
 
-Print "Are you using Nord Backgrounds?"
-Print "If you don't know what that means, choose No."
-GoSub YesNo
-    If YN = 1 Then GoSub NordBackground
-    If YN = 2 Then GoSub Background
+' Randomly assigns the characters background
+Background:
+    DICE(1) = Int(Rnd * 20) + 1
+        If DICE(1) = 1 Then Back$ = "Urchin"
+        If DICE(1) = 2 Then Back$ = "Wanted"
+        If DICE(1) = 3 Then Back$ = "Cult Initiate"
+        If DICE(1) = 4 Then Back$ = "Thieves' Guild"
+        If DICE(1) = 5 Then Back$ = "Banished"
+        If DICE(1) = 6 Then Back$ = "Orphaned"
+        If DICE(1) = 7 Then Back$ = "Wizard's Apprentice"
+        If DICE(1) = 8 Then Back$ = "Jeweler"
+        If DICE(1) = 9 Then Back$ = "Herbalist"
+        If DICE(1) = 10 Then Back$ = "Barbarian"
+        If DICE(1) = 11 Then Back$ = "Mercenary"
+        If DICE(1) = 12 Then Back$ = "Sailor"
+        If DICE(1) = 13 Then Back$ = "Acolyte"
+        If DICE(1) = 14 Then Back$ = "Soldier"
+        If DICE(1) = 15 Then Back$ = "Ranger"
+        If DICE(1) = 16 Then Back$ = "Scout"
+        If DICE(1) = 17 Then Back$ = "Minstrel"
+        If DICE(1) = 18 Then Back$ = "Scholar"
+        If DICE(1) = 19 Then Back$ = "Noble"
+        If DICE(1) = 20 Then Back$ = "Chirurgeon"
 
 ' Prints out the finished character to the screen
     Print: Print "What is your Name"
@@ -389,216 +390,6 @@ Bard:
         If Talent$ = "7-9" Then ClassTalent$ = "+2 points to distribute to any stats"
         If Talent$ = "10-11" Then ClassTalent$ = "The DC to use Inspire becomes 9"
         If Talent$ = "12" Then ClassTalent$ = "Choose a talent"
-Return
-
-Knight:
-    CLASSTYPE$ = "Knight of St. Ydris"
-    HITPOINTS = Int(Rnd * 6) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: All melee weapons, crossbow "
-    Armor$ = "Armor: All armor and shields"
-    Lanuage$ =  Lanuage$ + " and you know Diabolic."
-    ClassFeature1$ = "Demonic Possession"
-    ClassFeature2$ = "Spellcasting. You can cast witch spells you know. "
-    ClassFeature3$ = "+2 points to distribute to any stats"
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Your Demonic Possession bonus increases by 1 point"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Constitution stat"
-        If Talent$ = "10-11" Then ClassTalent$ = "+2 to Charisma stat or +1 to witch spellcasting checks"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
-Return
-
-Warlock:
-    CLASSTYPE$ = "Warlock"
-    HITPOINTS = Int(Rnd * 6) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword"
-    Armor$ = "Armor: Leather armor, chainmail, and shields"
-    Lanuage$ =  Lanuage$ + " and you know either Celestial, Diabolic, Draconic, Primordial, or Sylvan."
-    ClassFeature1$ = "Patron. Choose a patron to serve (see pg. 17). Your patron is thesource of your supernatural gifts."
-    ClassFeature2$ = "Patron Boon. At 1st level, you gain a random Patron Boontalent (see pg. 18) based onyour chosen patron."
-    ClassFeature3$ = " "
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Roll a Patron Boon from any patron; an unexplained gift"
-        If Talent$ = "3-6" Then ClassTalent$ = "Add +1 point to two stats (they must be different)"
-        If Talent$ = "7-9" Then ClassTalent$ = "+1 to melee or ranged attacks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Roll two Patron Boons and choose one to keep"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
-Return
-
-Witch:
-    CLASSTYPE$ = "Witch"
-    HITPOINTS = Int(Rnd * 4) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Dagger, staff"
-    Armor$ = "Armor: Leather armor"
-    Lanuage$ =  Lanuage$ + " and you know Diabolic, Primordial, and Sylvan. "
-    ClassFeature2$ = "Familiar. You have a small animal such as a raven, rat, or frog who serves you loyally. It can speak Common."
-    ClassFeature3$ = "Spellcasting. You can cast witch spells you know."
-    ClassFeature3$ = " "
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "1/day, teleport to your familiar's location as a move"
-        If Talent$ = "3-6" Then ClassTalent$ = "+2 to Charisma stat or +1 to witch spellcasting checks"
-        If Talent$ = "7-9" Then ClassTalent$ = "Gain advantage on casting one spell you know"
-        If Talent$ = "10-11" Then ClassTalent$ = "Learn an additional witch spell of any tier you can cast"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one talent or 2 points to distribute to stats"
-Return
-
-DesertRaider:
-    CLASSTYPE$ = "Desert Raider"
-    HITPOINTS = Int(Rnd * 8) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Club, dagger, javelin, longsword, pike (see New Weapons, pg. 17), shortbow, scimitar, spear, whip"
-    Armor$ = "Armor: Leather armor, shields"
-    ClassFeature1$ = "Charge. 3/day, you can charge into combat by moving at least near before attacking."
-    ClassFeature2$ = "Mount. You have a common camel or horse with a reliable or lovely demeanor (see pg. 29). It comes when you call and never spooks. You can only have one such mount at a time."
-    ClassFeature3$ = " "
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "You can use any rider-bearing creature as your mount"
-        If Talent$ = "3-6" Then ClassTalent$ = "You gain +1 to attacks or damage"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Dexterity stat, or +1 to melee attacks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Gain an additional use of your Charge talent each day"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one Talent or +2 points to distribute to stats"
-Return
-
-PitFighter:
-    CLASSTYPE$ = "Pit Fighter"
-    HITPOINTS = Int(Rnd * 8) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: All weapons"
-    Armor$ = "Armor: Leather armor, shields"
-    ClassFeature1$ = "Flourish. 3/day, regain 1d6 hit points when you hit an enemy with a melee attack."
-    ClassFeature2$ = "Implacable. You have advantage on Constitution checks to resist injury, poison, or endure extreme environments."
-    ClassFeature3$ = "Last Stand. You get up from dying with 1 hit point on a natural d20 roll of 18-20."
-    ClassFeature4$ = "Relentless. 3/day, when you are reduced to 0 HP, make a DC 18 Constitution check (the Implacable talent applies to this roll). On a success, you instead go to 1 HP."
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "1/day, ignore all damage and effects from one attack"
-        If Talent$ = "3-6" Then ClassTalent$ = "You gain +1 to melee weapon damage"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Constitution stat, or +1 to melee attacks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Increase the HP you gain from Flourish by 1d6"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
-Return
-
-RasGodai:
-    CLASSTYPE$ = "Ras-Godai"
-    HITPOINTS = Int(Rnd * 6) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Blowgun, (see pg. 17), bolas, dagger, razor chain, scimitar, shuriken, spear"
-    Armor$ = "Armor: Leather armor"
-    Language$ = Language$ + " and you know Diabolic."
-    ClassFeature1$ = "Assassinate. When you attack a surprised target, you deal double damage against it."
-    ClassFeature2$ = "Smoke Step. 3/day, teleport to a location you can see within near. This does not use your action."
-    BLTalent = Int(Rnd * 12) + 1
-        If BLTalent = 1 Then ClassFeature3$ = "You deal triple damage with your Assassinate talent"
-        If BLTalent = 2 Then ClassFeature3$ = "1/day, paralyze a target of LV 9 or less for 1d4 rounds when you damage it with a weapon"
-        If BLTalent = 3 Then ClassFeature3$ = "You have advantage on Dexterity checks to avoid entrapment or injury"
-        If BLTalent = 4 Then ClassFeature3$ = "You gain +1 to your AC when wielding a melee weapon in each hand"
-        If BLTalent = 5 Then ClassFeature3$ = "You gain an additional hit points die"
-        If BLTalent = 6 Then ClassFeature3$ = "You have advantage on DEX checks to sneak and hide"
-        If BLTalent = 7 Then ClassFeature3$ = "When enemies who can see you make a morale check, the DC is 18 instead of 15"
-        If BLTalent = 8 Then ClassFeature3$ = "1/day, you can walk on water as if it were solid for 1d4 rds"
-        If BLTalent = 9 Then ClassFeature3$ = "1/day, choose a living creature of LV 5 or less you can see within near; it must pass a DC 15 CON check or fall asleep"
-        If BLTalent = 10 Then ClassFeature3$ = "1/day, you can walk on sheer surfaces like walls for 1d4 rds"
-        If BLTalent = 11 Then ClassFeature3$ = "You deal +1 damage with melee weapons"
-        If BLTalent = 12 Then ClassFeature3$ = "1/day, choose a creature of LV 9 or less you can see; it must pass a DC 15 WIS check or it can't see or hear you for 1d4 rounds"
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "You are trained in the use of poisons (see pg. 27)"
-        If Talent$ = "3-6" Then ClassTalent$ = "Roll an additional talent on the Black Lotus Talents table"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Dexterity stat, or +1 to melee attacks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Gain an additional use of your Smoke Step talent"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
-Return
-
-SeaWolf:
-    CLASSTYPE$ = "Sea Wolf"
-    HITPOINTS = Int(Rnd * 8) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Dagger, greataxe, handaxe (see New Gear on pg. 20), longbow, longsword, spear"
-    Armor$ = "Armor: Leather armor, chainmail, shields"
-    ClassFeature1$ = "Seafarer. You have advantage on checks related to navigating and crewing boats."
-    ClassFeature2$ = "Old Gods. Each day, your purpose aligns with one of the Old Gods (pg. 17)."
-    ClassFeature3$ = "Shield Wall. If you wield a shield, you can use your action to take a defensive stance. Your AC becomes 20 during this time."
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "1/day, go berserk: immune to damage for 3 rounds"
-        If Talent$ = "3-6" Then ClassTalent$ = "Your attacks deal +1 damage"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength or Constitution stat, or +1 to attacks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Duality; choose two different Old Gods effects each day"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
-Return
-
-Seer:
-    CLASSTYPE$ = "Seer"
-    HITPOINTS = Int(Rnd * 6) + 1
-    GoSub FixHP
-    Weapon$ = "Weapons: Dagger, stave, spear"
-    Armor$ = "Armor: Leather armor"
-    ClassFeature1$ = "Destined. Whenever you use a luck token, add 1d6 to the roll."
-    ClassFeature2$ = "Omen. 3/day, you can make a DC 9 WIS check. On a success, gain a luck token (you can't have more than one luck token at a time)."
-    ClassFeature3$ = "Spellcasting. You can cast seer spells you know. You know one tier 1 spell of your choice from the seer spell list (see pg. 30)."
-    ClassFeature4$ = " "
-    GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Learn an additional seer spell from any tier you can cast"
-        If Talent$ = "3-6" Then ClassTalent$ = "Gain an additional use of your Omen talent each day"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to WIS or CHA stat, or +1 to spellcasting checks"
-        If Talent$ = "10-11" Then ClassTalent$ = "Increase the die category of your Destined talent by one"
-        If Talent$ = "12" Then ClassTalent$ = "Choose one option or +2 points to distribute to stats"
-Return
-
-' Randomly assigns the characters background
-Background:
-    DICE(1) = Int(Rnd * 20) + 1
-        If DICE(1) = 1 Then Back$ = "Urchin"
-        If DICE(1) = 2 Then Back$ = "Wanted"
-        If DICE(1) = 3 Then Back$ = "Cult Initiate"
-        If DICE(1) = 4 Then Back$ = "Thieves' Guild"
-        If DICE(1) = 5 Then Back$ = "Banished"
-        If DICE(1) = 6 Then Back$ = "Orphaned"
-        If DICE(1) = 7 Then Back$ = "Wizard's Apprentice"
-        If DICE(1) = 8 Then Back$ = "Jeweler"
-        If DICE(1) = 9 Then Back$ = "Herbalist"
-        If DICE(1) = 10 Then Back$ = "Barbarian"
-        If DICE(1) = 11 Then Back$ = "Mercenary"
-        If DICE(1) = 12 Then Back$ = "Sailor"
-        If DICE(1) = 13 Then Back$ = "Acolyte"
-        If DICE(1) = 14 Then Back$ = "Soldier"
-        If DICE(1) = 15 Then Back$ = "Ranger"
-        If DICE(1) = 16 Then Back$ = "Scout"
-        If DICE(1) = 17 Then Back$ = "Minstrel"
-        If DICE(1) = 18 Then Back$ = "Scholar"
-        If DICE(1) = 19 Then Back$ = "Noble"
-        If DICE(1) = 20 Then Back$ = "Chirurgeon"
-Return
-
-' Randomly assigns the characters background
-NordBackground:
-    DICE(1) = Int(Rnd * 20) + 1
-        If DICE(1) = 1 Then Back$ = "Freed"
-        If DICE(1) = 2 Then Back$ = "Displaced"
-        If DICE(1) = 3 Then Back$ = "Criminal"
-        If DICE(1) = 4 Then Back$ = "Drifter"
-        If DICE(1) = 5 Then Back$ = "Crop Farmer"
-        If DICE(1) = 6 Then Back$ = "Livestock Farmer"
-        If DICE(1) = 7 Then Back$ = "Hunter"
-        If DICE(1) = 8 Then Back$ = "Fisher"
-        If DICE(1) = 9 Then Back$ = "Enforcer"
-        If DICE(1) = 10 Then Back$ = "Trader"
-        If DICE(1) = 11 Then Back$ = "Crafter"
-        If DICE(1) = 12 Then Back$ = "Bowyer"
-        If DICE(1) = 13 Then Back$ = "Seer's Apprentice"
-        If DICE(1) = 14 Then Back$ = "Shipwright"
-        If DICE(1) = 15 Then Back$ = "Blacksmith"
-        If DICE(1) = 16 Then Back$ = "Far Traveler"
-        If DICE(1) = 17 Then Back$ = "Skald"
-        If DICE(1) = 18 Then Back$ = "Heroborn"
-        If DICE(1) = 19 Then Back$ = "Nobleborn"
-        If DICE(1) = 20 Then Back$ = "God's Blood"
 Return
 
 'Adds Con bonus to Hit Points
