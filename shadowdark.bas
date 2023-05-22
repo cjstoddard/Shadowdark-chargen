@@ -234,37 +234,37 @@ Return
 Dwarf:
     Ancestry$ = "Dwarf"
     Lanuage$ = "Common and Dwarvish"
-    AncestryFeature$ = "Stout. Start with +2 HP. Roll hit points per level with advantage."
+    AncestryFeature$ = "Stout. +2 HP at 1st level, each level there after, roll hit points with advantage."
 Return
 
 Elf:
     Ancestry$ = "Elf"
     Lanuage$ = "Common, Elvish, and Sylvan"
-    AncestryFeature$ = "Farsight. You get a +1 bonus to attack rolls with ranged weapons or a +1 bonus to spellcasting checks."
+    AncestryFeature$ = "Farsight. Choose; +1 bonus to ranged weapon attacks or +1 bonus to spellcasting checks."
 Return
 
 Goblin:
     Ancestry$ = "Goblin"
     Lanuage$ = "Common and Goblin"
-    AncestryFeature$ = "Keen Senses. You can't be surprised."
+    AncestryFeature$ = "Keen Senses. Character cannot be surprised."
 Return
 
 HalfOrc:
     Ancestry$ = "Half-Orc"
     Lanuage$ = "Common and Orcish"
-    AncestryFeature$ = "Mighty. You have a +1 bonus to attack and damage rolls with melee weapons."
+    AncestryFeature$ = "Mighty. +1 bonus to hit and damage with melee weapons."
 Return
 
 Halfling:
     Ancestry$ = "Halfling"
     Lanuage$ = "Common"
-    AncestryFeature$ = "Stealthy. Once per day, you can become invisible for 3 rounds."
+    AncestryFeature$ = "Stealthy. You become invisible for 3 rounds, use this ability once per day"
 Return
 
 Human:
     Ancestry$ = "Human"
     Lanuage$ = "Common and one additional common language."
-    AncestryFeature$ = "Ambitious. You gain one additional talent roll at 1st level."
+    AncestryFeature$ = "Ambitious. Roll one additional on the talent table at 1st level."
 Return
 
 ' Assigns class features
@@ -274,16 +274,16 @@ Fighter:
     GoSub FixHP
     Weapon$ = "Weapons: All weapons"
     Armor$ = "Armor: All armor and shields"
-    ClassFeature1$ = "Hauler. Add your Constitution modifier, if positive, to your gear slots."
-    ClassFeature2$ = "Weapon Mastery. Choose one type of weapon, such as longswords. You gain +1 to attack and damage with that weapon type. In addition, add half your level to these rolls (round down)."
-    ClassFeature3$ = "Grit. Choose Strength or Dexterity. You have advantage on checks of that type to overcome an opposing force,such as kicking open a stuck door (Strength) or slipping free of rusty chains (Dexterity)."
+    ClassFeature1$ = "Hauler. You gain additional gear slots equal to you Constitution modifier, if positive."
+    ClassFeature2$ = "Weapon Mastery. With one type of weapon, you gain +1 to attack and damage with that weapon type. Also, add half your level to attack and damage rolls (round down)."
+    ClassFeature3$ = "Grit. Choose Strength or Dexterity. You have advantage on checks based on that attribute."
     ClassFeature4$ = " "
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Gain Weapon Mastery with one additional weapon"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee and ranged attacks"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Constitution stat"
-        If Talent$ = "10-11" Then ClassTalent$ = "Choose one kind of armor. You get +1 AC from that armor"
-        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+        If Talent$ = "2" Then ClassTalent$ = "Gain Weapon Mastery with another weapon type"
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee and ranged attacks"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 bonus to Strength, Dexterity, or Constitution attribute"
+        If Talent$ = "10-11" Then ClassTalent$ = "Choose one type of armor. You get +1 your AC when wearing that armor"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to attributes"
 Return
 
 Priest:
@@ -293,16 +293,16 @@ Priest:
     Weapon$ = "Weapons: Club, crossbow, dagger, mace, longsword, staff, warhammer"
     Armor$ = "Armor: All armor and shields"
     Language$ = Language$ +  " and you know either Celestial, Diabolic, or Primordial."
-    ClassFeature1$ = "Turn Undead. You know the turn undead spell. It doesn’t count toward your number of known spells."
-    ClassFeature2$ = "Spellcasting. You can cast priest spells you know."
+    ClassFeature1$ = "Turn Undead. You know the turn undead spell, this does not count toward your number of known spells."
+    ClassFeature2$ = "Spellcasting. You can cast priest spells you have prepared."
     ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Gain advantage on casting one spell you know"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks"
-        If Talent$ = "7-9" Then ClassTalent$ = "+1 to priest spellcasting checks"
-        If Talent$ = "10-11" Then ClassTalent$ = "+2 to Strength or Wisdom stat"
-        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+        If Talent$ = "2" Then ClassTalent$ = "Gain advantage with one spell you know, when roll to cast."
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee or ranged attacks"
+        If Talent$ = "7-9" Then ClassTalent$ = "+1 bonus to priest spellcasting checks"
+        If Talent$ = "10-11" Then ClassTalent$ = "+2 to Strength or Wisdom attribute"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to attributes"
 Return
 
 Thief:
@@ -311,16 +311,16 @@ Thief:
     GoSub FixHP
     Weapon$ = "Weapons: Club, crossbow, dagger, shortbow, shortsword"
     Armor$ = "Armor: Leather armor, mithral chainmail"
-    ClassFeature1$ = "Backstab. If you hit a creature who is unaware of your attack, you deal an extra weapon die of damage. Add additional weapon dice of damage equal to half your level (round down)."
-    ClassFeature2$ = "Thievery. You are adept at thieving skills and have the necessary tools of the trade secreted on your person (they take up no gear slots)."
-    ClassFeature3$ = "You are trained in the thievery tasks and have advantage on any associated checks"
+    ClassFeature1$ = "Backstab. On successful attack roll, If the target is unaware of your attack, you deal an extra die of damage and an additional die of damage equal to half your level (round down)."
+    ClassFeature2$ = "Thievery. You are trained thieving skills and have can carry the necessary tools at no equipment slot cost."
+    ClassFeature3$ = "You are adept in the skills associated with thievery, you have advantage on any associated checks"
     ClassFeature4$ = " "
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Gain advantage on initiative rolls (reroll if duplicate)"
-        If Talent$ = "3-6" Then ClassTalent$ = "Your Backstab deals +1 dice of damage"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 to Strength, Dexterity, or Charisma stat"
-        If Talent$ = "10-11" Then ClassTalent$ = "+1 to melee and ranged attacks"
-        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+        If Talent$ = "2" Then ClassTalent$ = "You have advantage on initiative rolls (reroll if duplicate)"
+        If Talent$ = "3-6" Then ClassTalent$ = "Your Backstab deals +1 die of damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 bonus to Strength, Dexterity, or Charisma attribute"
+        If Talent$ = "10-11" Then ClassTalent$ = "+1 bonus to melee and ranged attacks"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to atributes"
 Return
 
 Wizard:
@@ -330,16 +330,16 @@ Wizard:
     Weapon$ = "Weapons: Dagger, staff"
     Armor$ = "Armor: None"
     Language$ = Language$ + " and you know two additional common languages and two rare languages"
-    ClassFeature1$ = "Learning Spells. You can permanently learn a wizard spell from a spell scroll by studying it for a day and succeeding on a DC 15 Intelligence check."
-    ClassFeature2$ = "Spellcasting. You can cast wizard spells you know."
+    ClassFeature1$ = "Learning Spells. You can learn new wizard spells from a scroll by studying it for a day and succeeding on a DC 15 INT check."
+    ClassFeature2$ = "Spellcasting. You can cast wizard spells you have prepared."
     ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "Make 1 random magic item of a type you choose"
-        If Talent$ = "3-6" Then ClassTalent$ = "+2 to Intelligence stat or +1 to wizard spellcasting checks"
-        If Talent$ = "7-9" Then ClassTalent$ = "Gain advantage on casting one spell you know"
+        If Talent$ = "2" Then ClassTalent$ = "Make a single random magic item of a type you choose"
+        If Talent$ = "3-6" Then ClassTalent$ = "+2 to Intelligence attribute or +1 bonus to wizard spellcasting checks"
+        If Talent$ = "7-9" Then ClassTalent$ = "Gain advantage on casting a single spell you know"
         If Talent$ = "10-11" Then ClassTalent$ = "Learn one additional wizard spell of any tier you know"
-        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to attribute"
 Return
 
 ZeroLevel:
@@ -348,7 +348,7 @@ ZeroLevel:
     GoSub FixHP
     Weapon$ = "Weapons: All weapons until 1st level"
     Armor$ = "Armor: All armor and shields until 1st level"
-    ClassFeature1$ = "Beginner's luck, you can wield all gear until 1st level."
+    ClassFeature1$ = "Beginner's luck, you can wield any and all equipment until 1st level."
     ClassFeature2$ = " "
     ClassFeature3$ = " "
     ClassFeature4$ = " "
@@ -361,16 +361,16 @@ Ranger:
     GoSub FixHP
     Weapon$ = "Weapons: Dagger, longbow, longsword, shortbow, shortsword, spear, staff"
     Armor$ = "Armor: Leather armor, chainmail"
-    ClassFeature1$ = "Wayfinder. You have advantage on checks associated with Rangers."
-    ClassFeature2$ = "Herbalism. Make an INT check to find an herb you choose. If you fail, you can't try to find that herb again until you successfully complete a rest. Unused herbs loose thier effect in 3 rounds."
+    ClassFeature1$ = "Wayfinder. You are adept in the skills associated with Rangers, you have advantage on any associated checks"
+    ClassFeature2$ = "Herbalism. Make an INT check to find an herb you choose. If you fail the check, you cannot try to find that herb again until you have completed a rest. Herbs not used loose thier effect after 3 rounds."
     ClassFeature3$ = " "
     ClassFeature4$ = " "
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "You deal d12 damage with one weapon type you choose"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks and damage"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 Strength, Dexterity, or Intellegence"
-        If Talent$ = "10-11" Then ClassTalent$ = "You gain ADV on Herbalism checks for an herb you choose"
-        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to stats"
+        If Talent$ = "2" Then ClassTalent$ = "You deal d12 damage with one weapon type of your choice."
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee or ranged attacks and damage"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 Strength, Dexterity, or Intellegence attribute"
+        If Talent$ = "10-11" Then ClassTalent$ = "You have advantage on Herbalism checks for the herb of your choice."
+        If Talent$ = "12" Then ClassTalent$ = "Choose a talent or +2 points to distribute to attributes"
 Return
 
 Bard:
@@ -380,15 +380,15 @@ Bard:
     Weapon$ = "Weapons: Crossbow, dagger, mace, shortbow, shortsword, spear, staff"
     Armor$ = "Armor: Leather armor, chainmail, shields"
     Lanuage$ =  Lanuage$ + " and You know four additional common languages and one rare language."
-    ClassFeature1$ = "Bardic Arts. You're trained in oration, performing arts, lore, and diplomacy. You have advantage on related checks."
-    ClassFeature2$ = "Inspire. DC 12 CHA check to give a luck token to one creature in near. If you fail, you can't use this again until you successfully rest."
-    ClassFeature3$ = "Magical Dabbler. You can activate any spell scroll or wand using Charisma as your spellcasting stat."
-    ClassFeature4$ = "Prolific. Add 1 + half your level (round down) to any roll for a downtime activity. This bonus applies to all participants who carouse with you."
+    ClassFeature1$ = "Bardic Arts. You are adept in the skills associated with Bards, you have advantage on any associated checks"
+    ClassFeature2$ = "Inspire. DC 12 Charisma check to give a luck token to a creature in near range. If you fail, you cannot use this again until you have completed a rest."
+    ClassFeature3$ = "Magical Dabbler. You can use any spell scroll or wand using Charisma as your spellcasting attribute."
+    ClassFeature4$ = "Prolific. Add add half your level plus 1 to a roll for downtime activities. This bonus applies to all who carouse with you."
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "1/day, DC 15 CHA to hypnotize a target in near, focus duration"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 to melee or ranged attacks or +1 to any stat"
-        If Talent$ = "7-9" Then ClassTalent$ = "+2 points to distribute to any stats"
-        If Talent$ = "10-11" Then ClassTalent$ = "The DC to use Inspire becomes 9"
+        If Talent$ = "2" Then ClassTalent$ = "1/day, DC 15 Charisma to hypnotize a target in near range, focus duration"
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee or ranged attacks or +1 to any attribute"
+        If Talent$ = "7-9" Then ClassTalent$ = "+2 points to distribute to any attribute"
+        If Talent$ = "10-11" Then ClassTalent$ = "The DC for Inspire feature becomes 9"
         If Talent$ = "12" Then ClassTalent$ = "Choose a talent"
 Return
 

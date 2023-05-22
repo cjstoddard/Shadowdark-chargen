@@ -23,7 +23,7 @@ qb64 -c shadowdark.bas
 
 Notes:
 
-In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds.
+In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds, I have also rewritten the ancestry and class features so as not to be verbatum from the rule book.
 
 I have added the Ranger and Bard classes, please keep in mind the Bard class is still under development and may change.
 
