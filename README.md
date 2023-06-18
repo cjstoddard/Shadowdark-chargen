@@ -23,6 +23,8 @@ QB64 is availble from https://qb64.com/. If you are using QB64 or have downloade
 
 Notes:
 
+I updated the Ranger and bard classes to match the final release.
+
 In light of the information provided by The Arcane Library and their Lawyer in a streaming event, I have removed all the Cursed Scroll classes and backgrounds, I have also rewritten the ancestry and class features so as not to be verbatum from the rule book. I have no paticular desire to go through the process of getting permission to use the Cursed Scroll classes and backgrounds. If someone wishes to fork my work and seek the appropriate lisence, please by all means do so. 
 
 I have added the Ranger and Bard classes, please keep in mind the Bard class is still under development and may change.

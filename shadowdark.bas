@@ -381,14 +381,14 @@ Bard:
     Armor$ = "Armor: Leather armor, chainmail, shields"
     Lanuage$ =  Lanuage$ + " and You know four additional common languages and one rare language."
     ClassFeature1$ = "Bardic Arts. You are adept in the skills associated with Bards, you have advantage on any associated checks"
-    ClassFeature2$ = "Inspire. DC 12 Charisma check to give a luck token to a creature in near range. If you fail, you cannot use this again until you have completed a rest."
-    ClassFeature3$ = "Magical Dabbler. You can use any spell scroll or wand using Charisma as your spellcasting attribute."
-    ClassFeature4$ = "Prolific. Add add half your level plus 1 to a roll for downtime activities. This bonus applies to all who carouse with you."
+    ClassFeature2$ = "Magical Dabbler. You can use any spell scroll or wand using Charisma as your spellcasting attribute."
+    ClassFeature3$ = "Perform. Make a Charisma roll use either Inspire (DC 12) or Fascinate (DC 15) abilities"
+    ClassFeature4$ = "Prolific. Add 1d6 to your learning and group carousing rolls."
     GoSub GetTalent
-        If Talent$ = "2" Then ClassTalent$ = "1/day, DC 15 Charisma to hypnotize a target in near range, focus duration"
-        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee or ranged attacks or +1 to any attribute"
+        If Talent$ = "2" Then ClassTalent$ = "You recieve a random priest or wizard wand, you choose which."
+        If Talent$ = "3-6" Then ClassTalent$ = "+1 bonus to melee and ranged attacks or +1 to Magic Dabbler rolls."
         If Talent$ = "7-9" Then ClassTalent$ = "+2 points to distribute to any attribute"
-        If Talent$ = "10-11" Then ClassTalent$ = "The DC for Inspire feature becomes 9"
+        If Talent$ = "10-11" Then ClassTalent$ = "Perfom DC is lowered by 3 for Inspire (DC 9) and Fascinate (DC 12), reroll if rolled a 2nd time."
         If Talent$ = "12" Then ClassTalent$ = "Choose a talent"
 Return
 
